@@ -66,7 +66,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         font-weight: bold;
       }
     </style>
-    <iron-a11y-keys id="a11y" keys="left right" on-keys-pressed="_arrowPressed"></iron-a11y-keys>
+    <iron-a11y-keys id="a11y" keys="left" target="[[target]]" on-keys-pressed="_previousSlide"></iron-a11y-keys>
+    <iron-a11y-keys id="a11y" keys="right" target="[[target]]" on-keys-pressed="_nextSlide"></iron-a11y-keys>
 
     <app-location route="{{route}}"></app-location>
     <app-route
@@ -126,6 +127,12 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           type: String,
           reflectToAttribute: true,
           observer: '_pageChanged'
+        },
+        target: {
+          type: Object,
+          value: function() {
+            return document.body;
+          }
         }
       },
 
@@ -155,10 +162,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         this.$.slides.exitAnimation = "slide-left-animation";
         this.$.slides.selectNext();
         this.page = this.$.slides.selected;
-      },
-
-      _arrowPressed: function(e){
-        console.log(e)
       }
     });
   </script>
