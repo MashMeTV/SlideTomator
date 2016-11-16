@@ -155,6 +155,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         this.page = page || 'view1';
       },
 
+      ready: function(){
+        this.$.slides.entryAnimation = "scale-up-animation";
+        this.$.slides.exitAnimation = "fade-out-animation";
+      },
       _pageChanged: function(page) {
         // Load page import on demand. Show 404 page if fails
         var resolvedPageUrl = this.resolveUrl('my-' + page + '.html');
@@ -162,15 +166,13 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       },
 
       _previousSlide: function(){
-        this.$.slides.entryAnimation = "slide-from-left-animation";
-        this.$.slides.exitAnimation = "slide-right-animation";
+
         this.$.slides.selectPrevious();
         this.page = this.$.slides.selected;
       },
 
       _nextSlide: function(){
-        this.$.slides.entryAnimation = "slide-from-right-animation";
-        this.$.slides.exitAnimation = "slide-left-animation";
+
         this.$.slides.selectNext();
         this.page = this.$.slides.selected;
       }
