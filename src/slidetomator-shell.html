@@ -124,8 +124,12 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                   api-key="AIzaSyCIm-nW-uLagGIDkFACm_dXQ-hfS-EV6Z4">
     </firebase-app>
     
-    <firebase-document id="test" path="/currentPage"
+    <firebase-document path="/currentPage"
                        data="{{page}}">
+    </firebase-document>
+
+    <firebase-document path="/emotions/{{page}}/happy"
+                       data="[[emotion]]">
     </firebase-document>
   </template>
 
@@ -144,6 +148,11 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           value: function() {
             return document.body;
           }
+        },
+        emotion:{
+          type: Number,
+          reflectToAttribute: true,
+          value: 0
         }
       },
 
@@ -159,20 +168,22 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         this.$.slides.entryAnimation = "scale-up-animation";
         this.$.slides.exitAnimation = "fade-out-animation";
       },
+
       _pageChanged: function(page) {
         // Load page import on demand. Show 404 page if fails
+        console.log(this.emotion)
+                this.emotion = this.emotion + 3;
+
         var resolvedPageUrl = this.resolveUrl('my-' + page + '.html');
         this.importHref(resolvedPageUrl, null, null, true);
       },
 
       _previousSlide: function(){
-
         this.$.slides.selectPrevious();
         this.page = this.$.slides.selected;
       },
 
       _nextSlide: function(){
-
         this.$.slides.selectNext();
         this.page = this.$.slides.selected;
       }
