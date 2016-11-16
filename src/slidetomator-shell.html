@@ -17,12 +17,15 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <link rel="import" href="../bower_components/app-layout/app-toolbar/app-toolbar.html">
 <link rel="import" href="../bower_components/app-route/app-location.html">
 <link rel="import" href="../bower_components/app-route/app-route.html">
-<link rel="import" href="../bower_components/iron-pages/iron-pages.html">
 <link rel="import" href="../bower_components/iron-selector/iron-selector.html">
 <link rel="import" href="../bower_components/paper-icon-button/paper-icon-button.html">
+<link rel="import" href="../bower_components/neon-animation/neon-animated-pages.html">
+<link rel="import" href="../bower_components/neon-animation/neon-animatable.html">
+<link rel="import" href="../bower_components/neon-animation/neon-animations.html">
+
 <link rel="import" href="my-icons.html">
 
-<dom-module id="my-app">
+<dom-module id="slidetomator-shell">
   <template>
     <style>
       :host {
@@ -70,7 +73,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         data="{{routeData}}"
         tail="{{subroute}}"></app-route>
 
-    <app-drawer-layout fullbleed>
+    <app-drawer-layout fullbleed force-narrow>
       <!-- Drawer content -->
       <app-drawer>
         <app-toolbar>Menu</app-toolbar>
@@ -87,27 +90,34 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         <app-header condenses reveals effects="waterfall">
           <app-toolbar>
             <paper-icon-button icon="menu" drawer-toggle></paper-icon-button>
-            <div main-title>My App</div>
+            <div main-title>PWA con Polymer</div>
           </app-toolbar>
         </app-header>
 
-        <iron-pages
+        <neon-animated-pages id="slides"
             selected="[[page]]"
             attr-for-selected="name"
             fallback-selection="view404"
             role="main">
-          <my-view1 name="view1"></my-view1>
-          <my-view2 name="view2"></my-view2>
-          <my-view3 name="view3"></my-view3>
-          <my-view404 name="view404"></my-view404>
-        </iron-pages>
+          <neon-animatable name="view1">
+            <my-view1 ></my-view1>
+          </neon-animatable>
+
+          <neon-animatable name="view2">          
+            <my-view2 ></my-view2>
+          </neon-animatable>
+
+          <neon-animatable name="view3">          
+            <my-view3 ></my-view2>
+          </neon-animatable>
+        </neon-animated-pages>
       </app-header-layout>
     </app-drawer-layout>
   </template>
 
   <script>
     Polymer({
-      is: 'my-app',
+      is: 'slidetomator-shell',
 
       properties: {
         page: {
@@ -128,11 +138,21 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       _pageChanged: function(page) {
         // Load page import on demand. Show 404 page if fails
         var resolvedPageUrl = this.resolveUrl('my-' + page + '.html');
-        this.importHref(resolvedPageUrl, null, this._showPage404, true);
+        this.importHref(resolvedPageUrl, null, null, true);
       },
 
-      _showPage404: function() {
-        this.page = 'view404';
+      _previousSlide: function(){
+        this.$.slides.entryAnimation = "slide-from-left-animation";
+        this.$.slides.exitAnimation = "slide-right-animation";
+        this.$.slides.selectPrevious();
+        this.page = this.$.slides.selected;
+      },
+
+      _nextSlide: function(){
+        this.$.slides.entryAnimation = "slide-from-right-animation";
+        this.$.slides.exitAnimation = "slide-left-animation";
+        this.$.slides.selectNext();
+        this.page = this.$.slides.selected;
       }
     });
   </script>
