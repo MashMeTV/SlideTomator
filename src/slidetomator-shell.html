@@ -23,6 +23,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <link rel="import" href="../bower_components/neon-animation/neon-animated-pages.html">
 <link rel="import" href="../bower_components/neon-animation/neon-animatable.html">
 <link rel="import" href="../bower_components/neon-animation/neon-animations.html">
+<link rel="import" href="../bower_components/polymerfire/firebase-app.html">
+<link rel="import" href="../bower_components/polymerfire/firebase-document.html">
 
 <link rel="import" href="my-icons.html">
 
@@ -116,6 +118,15 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         </neon-animated-pages>
       </app-header-layout>
     </app-drawer-layout>
+
+    <firebase-app auth-domain="slidetomator-6a36d.firebaseapp.com"
+                  database-url="https://slidetomator-6a36d.firebaseio.com/"
+                  api-key="AIzaSyCIm-nW-uLagGIDkFACm_dXQ-hfS-EV6Z4">
+    </firebase-app>
+    
+    <firebase-document id="test" path="/currentPage"
+                       data="{{page}}">
+    </firebase-document>
   </template>
 
   <script>
