@@ -89,7 +89,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     <app-location route="{{route}}"></app-location>
     <app-route
         route="{{route}}"
-        pattern="/:page"
+        pattern="/:page/:role"
         data="{{routeData}}"
         tail="{{subroute}}"></app-route>
 
@@ -138,15 +138,17 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         </neon-animated-pages>
       </app-header-layout>
       
-      <paper-menu-button class$="{{emotion}}">
-        <paper-icon-button icon="menu" class="dropdown-trigger"></paper-icon-button>
-        <iron-selector selected="{{emotion}}" attr-for-selected="name" class="dropdown-content">
-          <paper-item name="smile">aaa</paper-item>
-          <paper-item name="neutro">bbb</paper-item>
-          <paper-item name="sad">cc</paper-item>
-        </iron-selector>
-      </paper-menu-button>
-    </app-drawer-layout>
+      <template is='dom-if' if="{{viewer}}" >
+        <paper-menu-button class$="{{emotion}}">
+          <paper-icon-button icon="menu" class="dropdown-trigger"></paper-icon-button>
+          <iron-selector selected="{{emotion}}" attr-for-selected="name" class="dropdown-content">
+            <paper-item name="smile">aaa</paper-item>
+            <paper-item name="neutro">bbb</paper-item>
+            <paper-item name="sad">cc</paper-item>
+          </iron-selector>
+        </paper-menu-button>
+      </template>
+      </app-drawer-layout>
 
     <firebase-app auth-domain="slidetomator-6a36d.firebaseapp.com"
                   database-url="https://slidetomator-6a36d.firebaseio.com/"
@@ -173,6 +175,14 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           observer: '_pageChanged',
           value: '1-title'
         },
+        role: {
+          type: String,
+          observer: '_roleChanged',
+          reflectToAttribute: true
+        },
+        viewer: {
+          type: Boolean
+        },
         target: {
           type: Object,
           value: function() {
@@ -191,7 +201,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       },
 
       observers: [
-        '_routePageChanged(routeData.page)'
+        '_routePageChanged(routeData.page)',
+        '_setRole(routeData.role)'
       ],
 
       _routePageChanged: function(page) {
@@ -206,6 +217,16 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       _pageChanged: function(page) {
         var resolvedPageUrl = this.resolveUrl('slide-' + page + '.html');
         this.importHref(resolvedPageUrl, null, null, true);
+      },
+
+      _roleChanged: function(role) {
+        if (role === 'viewer'){
+          this.viewer = true;
+        }
+      },
+
+      _setRole: function(role) {
+        this.set('role', role);
       },
 
       _emotionChanged: function(emotion) {
