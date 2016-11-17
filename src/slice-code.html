@@ -1,0 +1,35 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../bower_components/syntax-highlight/syntax-highlight.html">
+
+<dom-module id="slice-code">
+  <template>
+    <style>
+      :host {
+      }
+    </style>
+
+    <syntax-highlight theme="Arta" lang="html" >
+        <h1>lorem ipsum</h1>
+        <script>
+            console.log("this is a test");
+        </script>
+    </syntax-highlight>
+  </template>
+
+  <script>
+    Polymer({
+      is: 'slice-code',
+
+      properties:{
+          title:{
+              type: String,
+              reflectToAttribute: true,
+              value: "Lorem Ipsum"
+          }
+      },
+
+      ready: function(){
+      }
+    });
+  </script>
+</dom-module>

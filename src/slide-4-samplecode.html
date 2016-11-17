@@ -11,28 +11,24 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <link rel="import" href="../bower_components/polymer/polymer.html">
 <link rel="import" href="shared-styles.html">
 
-<link rel="import" href="slice-title.html">
-<link rel="import" href="slice-speaker.html">
+<link rel="import" href="slice-code.html">
 
-<dom-module id="slide-1-title">
+<dom-module id="slide-4-samplecode">
   <template>
     <style include="shared-styles">
       :host {
-        @apply(--flex);
+        @apply(--slide-styles);
       }
     </style>
 
-    <div class="card" card-center>
-      <slice-title title="Lorem Ipsum Kame Kame Ha!" text-center></slice-title>
-      <slice-speaker name="Victor Sanchez" twitter="VictorSanchez" avatar="../images/avatar.png"></slice-speaker>
-      <slice-speaker name="Gloria Bueno" twitter="globitss" avatar="../images/avatar.png"></slice-speaker>
+    <div class="card">
+      <slice-code></slice-code>
     </div>
-
   </template>
 
   <script>
     Polymer({
-      is: 'slide-1-title',
+      is: 'slide-4-samplecode'
     });
   </script>
 </dom-module>
