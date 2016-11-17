@@ -14,24 +14,101 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <dom-module id="shared-styles">
   <template>
     <style>
-      :root{
-        --slide-styles:{
-          flex: 1;
-          display: flex;
-          padding: 10px;
-        };
-      }
+        /************
 
-      .card {
-        display: flex;
-        margin: 24px;
-        padding: 16px;
-        flex: 1;
-        color: #757575;
-        border-radius: 5px;
-        background-color: #fff;
-        box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
-      }
+        company: syncRTC.com
+        author: @zmencay
+        client: SlideTomator
+        date-creation: Nov 2016
+
+        ----------------------------
+
+        style guide:
+
+        0. imports
+        1. variables
+        2. general elements
+        3. slice elements
+
+        *************/
+
+        /** -- 0. IMPORTS -- */        
+
+        /** -- 1. VARIABLES -- */
+        :root{
+
+            --flex: {
+
+                /* flex */
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex:1;
+
+            };
+
+            /*** COLORS ***/
+            --white: #fff;
+            --black: #000;
+            --gray: #999;
+            
+            /** CARD SETTINGS **/
+            --margin-card: 35px;
+            --padding-card: 35px;
+            --border-radius-card: 20px;
+
+            /*** FONTS ***/
+
+                /* -- font SIZE -- */   
+
+                --font-size-base:16px;
+            
+                /* -- font WEIGHT -- */            
+
+                --font-light: 100;
+                --font-regular: 300;
+                --font-bold: 700;
+
+                /* -- font FAMILIES -- */
+
+                --font-family-base: Arial;
+                --font-roboto: 'Roboto';
+                --font-roboto-condensed: 'Roboto Condensed';
+                --font-oswald: 'Oswald';
+                --font-trirong: 'Trirong';
+                --font-dosis: 'Dosis';
+
+        }
+      
+        /** -- 2. GENERAL ELEMENTS -- */
+            :root {
+                box-sizing: border-box;
+            }
+
+            .card {
+
+                /* flex */
+                @apply(--flex);
+                flex-flow: column nowrap;
+
+                /* layout */
+                position: relative;
+                overflow: hidden;
+
+                /* box-model */
+                height: 90%;
+                margin: var(--margin-card);
+                padding: var(--padding-card);
+
+                /* font */
+                color: var(--gray);
+
+                /* presentation */
+                border-radius: var(--border-radius-card);
+                background-color: var(--white);
+                box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
+
+            }
 
       .circle {
         display: inline-block;
@@ -49,13 +126,62 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         line-height: 64px;
       }
 
-      h1 {
-        margin: 16px 0;
+    /** -- 3. SLICE ELEMENTS -- */
 
-        color: #212121;
+        [text-left] {
+            text-align: left;
+        }
+        [text-center] {
+            text-align: center;
+        }
+        [text-right] {
+            text-align: right;
+        }
 
-        font-size: 22px;
-      }
+        [card-top] {
+            justify-content: flex-start;
+        }
+        [card-center] {
+            justify-content: center;
+        }
+        [card-bottom] {
+            justify-content: flex-end;
+        }
+
+        ::shadow h1 {
+
+            /* box-model */
+            margin:20px 0;
+
+            /* font */
+            color: var(--black);
+            font:var(--font-normal) calc(var(--font-size-base)*6) var(--font-roboto-condensed); 
+            line-height: 1;
+
+        }
+
+        slice-imgbg {
+            /* flex */
+            @apply(--flex); 
+
+            /* layout */
+            position: absolute;
+            left: 0;
+            top: 0;
+            z-index: 0;
+
+            /* box-model */
+            max-width: 100%;
+            max-height: 100%;
+            overflow: hidden;
+
+        }
+
+        slice-list {
+            /* font */
+            font:var(--font-light) calc(var(--font-size-base)*2) var(--font-roboto-condensed);
+        }
+
     </style>
   </template>
 </dom-module>

@@ -17,13 +17,26 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <dom-module id="slide-2-imagetest">
   <template>
     <style include="shared-styles">
-      :host {
-        @apply(--slide-styles);
-      }
+        :host {
+            @apply(--flex);
+        }
+
+        slice-title {
+            /* layout */
+            z-index: 2;
+        }
+        
+        ::shadow h1 {
+
+            /* font */
+            font-size: calc(var(--font-size-base)*8);
+            text-shadow: 3px 3px 0 rgba(255,255,255,.7);
+        }
+
     </style>
 
-    <div class="card">
-      <slice-title title="Lorem Ipsum Kame Kame Ha!"></slice-title>
+    <div class="card" card-top>
+      <slice-title title="Lorem Ipsum Kame Kame Ha!" text-center></slice-title>
       <slice-imgbg src="../images/syncrtc_bg.jpg"></slice-imgbg>
     </div>
   </template>

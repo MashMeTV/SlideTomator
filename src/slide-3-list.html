@@ -18,13 +18,13 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   <template>
     <style include="shared-styles">
       :host {
-        @apply(--slide-styles);
+        @apply(--flex);
       }
     </style>
 
-    <div class="card">
-      <slice-title title="Fruits"></slice-title>
-      <slice-list elements='["apple", "orange", "banana"]'></slice-list>
+    <div class="card" card-top>
+      <slice-title title="Fruits" text-left></slice-title>
+      <slice-list elements='["apple", "orange", "banana"]' text-left></slice-list>
     </div>
   </template>
 
