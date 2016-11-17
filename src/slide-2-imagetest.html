@@ -11,34 +11,26 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <link rel="import" href="../bower_components/polymer/polymer.html">
 <link rel="import" href="shared-styles.html">
 
-<dom-module id="my-view1">
+<link rel="import" href="slice-title.html">
+<link rel="import" href="slice-imgbg.html">
+
+<dom-module id="slide-2-imagetest">
   <template>
     <style include="shared-styles">
       :host {
         @apply(--slide-styles);
       }
-
-      :host .card{
-        background-color: var(--bg-color, beige);
-      }
     </style>
 
     <div class="card">
-      <h1>{{title}}</h1>
+      <slice-title title="Lorem Ipsum Kame Kame Ha!"></slice-title>
+      <slice-imgbg src="../images/syncrtc_bg.jpg"></slice-imgbg>
     </div>
   </template>
 
   <script>
     Polymer({
-      is: 'my-view1', 
-
-      properties:{
-        title:{
-          type: String,
-          reflectToAtribute: true,
-          value: "Test title"
-        }
-      }
+      is: 'slide-2-imagetest'
     });
   </script>
 </dom-module>

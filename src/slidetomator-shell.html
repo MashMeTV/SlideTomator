@@ -95,9 +95,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       <app-drawer>
         <app-toolbar>Menu</app-toolbar>
         <iron-selector selected="[[page]]" attr-for-selected="name" class="drawer-list" role="navigation">
-          <a name="view1" href="/view1">View One</a>
-          <a name="view2" href="/view2">View Two</a>
-          <a name="view3" href="/view3">View Three</a>
+          <a name="1-title" href="/1-title">View One</a>
+          <a name="2-imagetest" href="/2-imagetest">View Two</a>
+          <a name="3-list" href="/3-list">View Three</a>
         </iron-selector>
       </app-drawer>
 
@@ -116,16 +116,16 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             attr-for-selected="name"
             fallback-selection="view404"
             role="main">
-          <neon-animatable name="view1">
-            <my-view1 title="my first slide"></my-view1>
+          <neon-animatable name="1-title">
+            <slide-1-title></slide-1-title>
           </neon-animatable>
 
-          <neon-animatable name="view2">          
-            <my-view2 ></my-view2>
+          <neon-animatable name="2-imagetest">          
+            <slide-2-imagetest></slide-2-imagetest>
           </neon-animatable>
 
-          <neon-animatable name="view3">          
-            <my-view3 ></my-view2>
+          <neon-animatable name="3-list">          
+            <slide-3-list></slide-3-list>
           </neon-animatable>
         </neon-animated-pages>
       </app-header-layout>
@@ -153,7 +153,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         page: {
           type: String,
           reflectToAttribute: true,
-          observer: '_pageChanged'
+          observer: '_pageChanged',
+          value: '1-title'
         },
         target: {
           type: Object,
@@ -173,7 +174,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       ],
 
       _routePageChanged: function(page) {
-        this.page = page || 'view1';
+        this.page = page || '1-title';
       },
 
       ready: function(){
@@ -182,11 +183,12 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       },
 
       _pageChanged: function(page) {
+        console.log(page)
         // Load page import on demand. Show 404 page if fails
-        console.log(this.emotion)
-                this.emotion = this.emotion + 3;
+        //console.log(this.emotion)
+          //      this.emotion = this.emotion + 3;
 
-        var resolvedPageUrl = this.resolveUrl('my-' + page + '.html');
+        var resolvedPageUrl = this.resolveUrl('slide-' + page + '.html');
         this.importHref(resolvedPageUrl, null, null, true);
       },
 

@@ -1,0 +1,26 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+
+<dom-module id="slice-title">
+  <template>
+    <style>
+      :host {
+      }
+    </style>
+
+    <h1>{{title}}</h1>
+  </template>
+
+  <script>
+    Polymer({
+      is: 'slice-title',
+
+      properties:{
+          title:{
+              type: String,
+              reflectToAttribute: true,
+              value: "Lorem Ipsum"
+          }
+      }
+    });
+  </script>
+</dom-module>

@@ -2,9 +2,9 @@
   "entrypoint": "index.html",
   "shell": "src/slidetomator-shell.html",
   "fragments": [
-    "src/my-view1.html",
-    "src/my-view2.html",
-    "src/my-view3.html",
+    "src/slide-1-title.html",
+    "src/slide-2-imagetest.html",
+    "src/slide-3-list.html",
     "src/my-view404.html"
   ],
   "sourceGlobs": [

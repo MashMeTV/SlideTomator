@@ -1,0 +1,26 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+
+<dom-module id="slice-imgbg">
+  <template>
+    <style>
+      :host {
+      }
+    </style>
+
+    <img src="{{img}}"/>
+  </template>
+
+  <script>
+    Polymer({
+      is: 'slice-imgbg',
+
+      properties:{
+          img:{
+              type: String,
+              reflectToAttribute: true,
+              value: "../images/syncrtc_bg.jpg"
+          }
+      }
+    });
+  </script>
+</dom-module>
