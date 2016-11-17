@@ -14,10 +14,19 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <dom-module id="shared-styles">
   <template>
     <style>
+      :root{
+        --slide-styles:{
+          flex: 1;
+          display: flex;
+          padding: 10px;
+        };
+      }
+
       .card {
+        display: flex;
         margin: 24px;
         padding: 16px;
-
+        flex: 1;
         color: #757575;
         border-radius: 5px;
         background-color: #fff;

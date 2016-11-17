@@ -15,9 +15,11 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   <template>
     <style include="shared-styles">
       :host {
-        display: block;
+        @apply(--slide-styles);
+      }
 
-        padding: 10px;
+      :host .card{
+        background-image: url('../images/syncrtc_bg.jpg');
       }
     </style>
 

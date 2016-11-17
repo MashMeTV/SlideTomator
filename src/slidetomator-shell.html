@@ -42,8 +42,20 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         color: #fff;
         background-color: var(--app-primary-color);
       }
+
       app-header paper-icon-button {
         --paper-icon-button-ink-color: white;
+      }
+
+      neon-animated-pages{
+        height: 100%;
+      }
+
+      neon-animatable{
+        position: initial;
+        height: 100%;
+        width: 100%;
+        display: flex;
       }
 
       .drawer-list {
@@ -105,7 +117,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             fallback-selection="view404"
             role="main">
           <neon-animatable name="view1">
-            <my-view1 ></my-view1>
+            <my-view1 title="my first slide"></my-view1>
           </neon-animatable>
 
           <neon-animatable name="view2">          

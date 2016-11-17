@@ -15,23 +15,30 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   <template>
     <style include="shared-styles">
       :host {
-        display: block;
+        @apply(--slide-styles);
+      }
 
-        padding: 10px;
+      :host .card{
+        background-color: var(--bg-color, beige);
       }
     </style>
 
     <div class="card">
-      <div class="circle">1</div>
-      <h1>View One</h1>
-      <p>Ut labores minimum atomorum pro. Laudem tibique ut has.
-      <p>Lorem ipsum dolor sit amet, per in nusquam nominavi periculis, sit elit oportere ea.Lorem ipsum dolor sit amet, per in nusquam nominavi periculis, sit elit oportere ea.Cu mei vide viris gloriatur, at populo eripuit sit.</p>
+      <h1>{{title}}</h1>
     </div>
   </template>
 
   <script>
     Polymer({
-      is: 'my-view1'
+      is: 'my-view1', 
+
+      properties:{
+        title:{
+          type: String,
+          reflectToAtribute: true,
+          value: "Test title"
+        }
+      }
     });
   </script>
 </dom-module>
