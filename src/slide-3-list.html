@@ -11,6 +11,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <link rel="import" href="../bower_components/polymer/polymer.html">
 <link rel="import" href="shared-styles.html">
 
+<link rel="import" href="slice-title.html">
+<link rel="import" href="slice-list.html">
+
 <dom-module id="slide-3-list">
   <template>
     <style include="shared-styles">
@@ -20,6 +23,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     </style>
 
     <div class="card">
+      <slice-title title="Fruits"></slice-title>
+      <slice-list elements='["apple", "orange", "banana"]'></slice-list>
     </div>
   </template>
 

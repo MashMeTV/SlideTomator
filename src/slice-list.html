@@ -1,0 +1,29 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+
+<dom-module id="slice-list">
+  <template>
+    <style>
+      :host {
+      }
+    </style>
+
+    <ul>
+        <template is="dom-repeat" items={{elements}}>
+            <li>{{item}}</li>
+        </template>
+    </ul>
+  </template>
+
+  <script>
+    Polymer({
+      is: 'slice-list',
+
+      properties:{
+          elements:{
+              type: Object,
+              reflectToAttribute: true
+          }
+      }
+    });
+  </script>
+</dom-module>
