@@ -18,7 +18,9 @@
     "polymer": "Polymer/polymer#^1.7.0",
     "neon-animation": "^1.2.4",
     "iron-a11y-keys": "^1.0.6",
-    "polymerfire": "^0.10.3"
+    "polymerfire": "^0.10.3",
+    "highlightjs": "^9.8.0",
+    "syntax-highlight": "1000ch/syntax-highlight#^1.0.0"
   },
   "devDependencies": {
     "web-component-tester": "^4.0.0"
