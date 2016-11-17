@@ -1,0 +1,38 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+
+<dom-module id="slice-speaker">
+  <template>
+    <style>
+      :host {
+      }
+    </style>
+
+    <h2>{{name}}</h2>
+    <h3><a href="https://www.twitter.com/{{twitter}}">@{{twitter}}</h3>
+    <img src='{{avatar}}'/>
+  </template>
+
+  <script>
+    Polymer({
+      is: 'slice-speaker',
+
+      properties:{
+          name:{
+              type: String,
+              reflectToAttribute: true,
+              value: "Lorem Ipsum"
+          },
+          twitter:{
+            type: String,
+            reflectToAttribute: true,
+            value: "LoremIpsum"
+          },
+          avatar:{
+            type: String,
+            reflectToAttribute: true,
+            value: "../images/avatar.png"
+          }
+      }
+    });
+  </script>
+</dom-module>
