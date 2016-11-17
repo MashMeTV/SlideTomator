@@ -180,9 +180,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           observer: '_roleChanged',
           reflectToAttribute: true
         },
-        viewer: {
-          type: Boolean
-        },
         target: {
           type: Object,
           value: function() {
@@ -220,9 +217,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       },
 
       _roleChanged: function(role) {
-        if (role === 'viewer'){
-          this.viewer = true;
-        }
+        this.set(role, true);
       },
 
       _setRole: function(role) {
