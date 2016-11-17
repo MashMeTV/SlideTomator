@@ -20,9 +20,15 @@
     "iron-a11y-keys": "^1.0.6",
     "polymerfire": "^0.10.3",
     "highlightjs": "^9.8.0",
-    "syntax-highlight": "1000ch/syntax-highlight#^1.0.0"
+    "syntax-highlight": "1000ch/syntax-highlight#^1.0.0",
+    "paper-menu-button": "^1.5.2",
+    "paper-menu": "^1.2.2",
+    "paper-item": "^1.2.1"
   },
   "devDependencies": {
     "web-component-tester": "^4.0.0"
+  },
+  "resolutions": {
+    "highlightjs": "8.5"
   }
 }
