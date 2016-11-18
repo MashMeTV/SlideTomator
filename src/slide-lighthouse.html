@@ -12,14 +12,27 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <link rel="import" href="shared-styles.html">
 
 <link rel="import" href="slice-title.html">
-<link rel="import" href="slice-speaker.html">
+<link rel="import" href="slice-list.html">
 <link rel="import" href="slice-imgbg.html">
 
-<dom-module id="slide-11-lighthouse">
+<dom-module id="slide-lighthouse">
   <template>
     <style include="shared-styles">
       :host {
         @apply(--flex);
+      }
+        
+      ::shadow h1 {
+        margin-top: 0;
+
+          /* font */
+          color:var(--red);
+          font-family: var(--font-family-type5);
+      }
+
+      slice-title, 
+      slice-list {
+        border-left: 10px solid var(--red);
       }
     </style>
 
@@ -33,7 +46,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
   <script>
     Polymer({
-      is: 'slide-11-lighthouse',
+      is: 'slide-lighthouse',
 
       properties: {
         elements: {

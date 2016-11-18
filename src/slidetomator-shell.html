@@ -41,7 +41,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     <app-location route="{{route}}"></app-location>
     <app-route
         route="{{route}}"
-        pattern="/:page/:role"
+        pattern="/:page"
         data="{{routeData}}"
         tail="{{subroute}}"></app-route>
 
@@ -51,9 +51,24 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         <app-toolbar class="logo"><img src="../images/sliceTomator.svg" alt="slice tomator"></app-toolbar>
         <iron-selector selected="[[page]]" attr-for-selected="name" class="drawer-list" role="navigation">
           <a name="1-title" href="/1-title">Title</a>
-          <a name="2-imagetest" href="/2-imagetest">Bg image test</a>
-          <a name="3-list" href="/3-list">List of fruits</a>
-          <a name="4-samplecode" href="/4-samplecode">Sample code</a>
+          <a name="setinstone" href="/setinstone">Set in stone</a>
+          <a name="serverlangs" href="/serverlangs">Server langs.</a>
+          <a name="widgets" href="/widgets">Widgets</a>
+          <a name="data" href="/data">Data</a>
+          <a name="ajax" href="/ajax">Ajax</a>
+          <a name="webapp" href="/webapp">WebApp</a>
+          <a name="html5bg" href="/html5bg">HTML5</a>
+          <a name="html5" href="/html5">HTML5 is Hawkeye</a>
+          <a name="html5team" href="/html5team">HTML5 Team</a>
+          <a name="polyintro" href="/polyintro">Polyintro</a>
+          <a name="polylib" href="/polylib">Polymer Library</a>
+          <a name="polyele" href="/polyele">Polymer Elements</a>
+          <a name="prlp" href="/prlp">PRPL</a>
+          <a name="whatarepwa" href="/whatarepwa">What are PWA?</a>
+          <a name="pwafeatures" href="/pwafeatures">PWA Features</a>
+          <a name="pwamanifest" href="/pwamanifest">PWA Manisfest</a>
+          <a name="lighthouse" href="/lighthouse">Lighthouse</a>
+          <a name="data" href="/data">Data</a>
         </iron-selector>
       </app-drawer>
 
@@ -76,18 +91,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             <slide-1-title></slide-1-title>
           </neon-animatable>
 
-          <neon-animatable name="2-imagetest">          
-            <slide-2-imagetest></slide-2-imagetest>
-          </neon-animatable>
-
-          <neon-animatable name="3-list">          
-            <slide-3-list></slide-3-list>
-          </neon-animatable>
-
-          <neon-animatable name="4-samplecode">          
-            <slide-4-samplecode></slide-4-samplecode>
-          </neon-animatable>
-
+          <!-- HTML5 INTRO HERE -->
           <neon-animatable name="setinstone">          
             <slide-setinstone></slide-setinstone>
           </neon-animatable>
@@ -147,15 +151,20 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             <slide-pwafeatures></slide-pwafeatures>
           </neon-animatable>
 
+          <neon-animatable name="pwamanifest">          
+            <slide-pwamanifest></slide-pwamanifest>
+          </neon-animatable>   
+
           <!-- LIGHTHOUSE HERE -->
           <neon-animatable name="lighthouse">          
             <slide-lighthouse></slide-lighthouse>
           </neon-animatable>
+
         </neon-animated-pages>
       </app-header-layout>
       
       <template is='dom-if' if="{{viewer}}" >
-        <paper-menu-button emotions-nav class$="{{emotion}}">
+        <paper-menu-button emotions-nav class$="{{_getClassForEmotionNav(emotion)}}">
           <paper-icon-button src="../images/sliceTomator.svg" class="dropdown-trigger"></paper-icon-button>
           <iron-selector selected="{{emotion}}" attr-for-selected="name" class="dropdown-content">
             <paper-item name="boring"></paper-item>
@@ -173,12 +182,12 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                   api-key="AIzaSyCIm-nW-uLagGIDkFACm_dXQ-hfS-EV6Z4">
     </firebase-app>
     
-    <!--<firebase-document path="/currentPage"
+    <firebase-document path="/currentPage"
                        data="{{page}}">
-    </firebase-document>-->
+    </firebase-document>
 
     <firebase-document path="/emotions/{{page}}/{{emotion}}"
-                       data="[[emotionCounter]]">
+                       data="{{emotionCounter}}">
     </firebase-document>
   </template>
 
@@ -193,11 +202,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           observer: '_pageChanged',
           value: '1-title'
         },
-        role: {
-          type: String,
-          observer: '_roleChanged',
-          reflectToAttribute: true
-        },
         target: {
           type: Object,
           value: function() {
@@ -206,13 +210,12 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         },
         emotion:{
           type: Number,
-          value: 'smile',
           observer: '_emotionChanged'
         },
         emotionCounter:{
           type: Number,
           reflectToAttribute: true,
-          value: 0
+          value: null
         },
         emotionValues:{
           type: Object,
@@ -227,7 +230,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
       observers: [
         '_routePageChanged(routeData.page)',
-        '_setRole(routeData.role)'
+        '_setParams(subroute.__queryParams)'
       ],
 
       _routePageChanged: function(page) {
@@ -242,33 +245,25 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       _pageChanged: function(page) {
         var resolvedPageUrl = this.resolveUrl('slide-' + page + '.html');
         this.importHref(resolvedPageUrl, null, null, true);
+        console.log(this.emotionCounter);
+        this.set('emotion', null);
       },
 
-      _roleChanged: function(role) {
-        this.set(role, true);
-      },
-
-      _setRole: function(role) {
-        this.set('role', role);
+      _setParams: function(queryParams) {
+        for(var prop in queryParams){
+          this.set(prop, queryParams[prop]);
+        }
       },
 
       _emotionChanged: function(emotion) {
-        console.log('emotionChanged!!');
-        console.log(this.emotionCounter);
-        if(!this.emotionCounter)
-          this.emotionCounter = 0
-        this.emotionCounter++;
-        this.set('emotionCounter', this.emotionCounter);
-
         if(!this.emotionValues)
           this.emotionValues = {};
-        if(!this.emotionValues['emotion'])
-          this.emotionValues['emotion'] = 0;
+        if(!this.emotionValues[emotion])
+          this.emotionValues[emotion] = 0;
         
-        this.emotionValues['emotion']++;
-        this.set('emotionValues.'+emotion, this.emotionCounter);
+        this.emotionValues[emotion]++;
 
-        console.log(this.emotionCounter);
+        this.set('emotionCounter', this.emotionValues[emotion]);
       },
 
       _previousSlide: function(){
@@ -279,6 +274,15 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       _nextSlide: function(){
         this.$.slides.selectNext();
         this.page = this.$.slides.selected;
+      },
+
+      _getClassForEmotionNav: function(emotion) {
+        console.log(emotion);
+        if(!emotion){
+          return '';
+        }else{
+          return emotion + ' voted';
+        }
       }
     });
   </script>
