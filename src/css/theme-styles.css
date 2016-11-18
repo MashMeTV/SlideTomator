@@ -116,7 +116,11 @@ display: flex;
 	background: #E3492B;
 	border-radius:50%;
 }
-	
+	[emotions-nav].voted {
+		pointer-events: none;
+		background-color: grey;
+	}
+
 	[emotions-nav].smile {
 		
 	}
