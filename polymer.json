@@ -3,9 +3,23 @@
   "shell": "src/slidetomator-shell.html",
   "fragments": [
     "src/slide-1-title.html",
-    "src/slide-2-imagetest.html",
-    "src/slide-3-list.html",
-    "src/my-view404.html"
+    "src/slide-ajax.html",
+    "src/slide-data.html",
+    "src/slide-html5.html",
+    "src/slide-html5bg.html",
+    "src/slide-html5team.html",
+    "src/slide-lighthouse.html",
+    "src/slide-polyele.html",
+    "src/slide-polyintro.html",
+    "src/slide-polylib.html",
+    "src/slide-prlp.html",
+    "src/slide-pwafeatures.html",
+    "src/slide-pwamanifest.html",
+    "src/slide-serverlangs.html",
+    "src/slide-setinstone.html",
+    "src/slide-webapp.html",
+    "src/slide-whatarepwa.html",
+    "src/slide-widgets.html"
   ],
   "sourceGlobs": [
    "src/**/*",
