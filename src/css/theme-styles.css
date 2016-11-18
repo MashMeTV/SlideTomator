@@ -118,6 +118,11 @@ display: flex;
 	background: #E3492B;
 	border-radius:50%;
 }
+	
+	[emotions-nav].smile {
+		
+	}
+
 	[emotions-nav] paper-icon-button {
 		padding:0;
 	}
@@ -131,12 +136,44 @@ display: flex;
 		left:0;
 		z-index:1;
 
-    flex-flow: row nowrap;
-    display: flex;
-    justify-content:space-between;
+	    flex-flow: row nowrap;
+	    display: flex;
+	    justify-content:flex-start;
+		
+		padding-left:10px;
 
 		width:100%;
 		background:#424045;
 		height:60px;
 		color:#fff;
+
+	}
+
+	[name="smile"], [name="neutral"], [name="boring"] {
+		background-repeat: no-repeat;
+		background-position: center center;
+		background-size:35px;
+		width:40px;
+		height:calc(100% - 5px);
+		border-bottom:5px solid #BD1622;
+		margin-left:10px;
+	}
+
+
+	[name="smile"] {
+		background-image:url(../../images/slice-feliz.svg);
+		background-color: rgba(41,171,31,.2);
+		border-color:#29AB1F;
+	}
+
+	[name="neutral"] {
+		background-image:url(../../images/slice-neutral.svg);
+		background-color: rgba(242,145,0,.2);
+		border-color:#F29100;
+	}
+
+	[name="boring"] {
+		background-image:url(../../images/slice-triste.svg);
+		background-color: rgba(189,22,34,.2);
+		border-color:#BD1622;
 	}
