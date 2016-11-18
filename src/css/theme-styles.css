@@ -122,6 +122,7 @@ display: flex;
 		pointer-events: none;
 		width:40px;
 		height:40px;
+		background-color: gray;
 	}
 	
 	[emotions-nav].voted paper-icon-button {
