@@ -40,7 +40,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       .slices-nav {
 
         overflow-y: scroll;
-        
+
         --app-drawer-content-container: {
           box-shadow: none;
           background: rgba(227,161,80,.95);
@@ -49,8 +49,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       }
     </style>
 
-    <iron-a11y-keys id="a11y" keys="left" target="[[target]]" on-keys-pressed="_previousSlide"></iron-a11y-keys>
-    <iron-a11y-keys id="a11y" keys="right" target="[[target]]" on-keys-pressed="_nextSlide"></iron-a11y-keys>
+    <template is='dom-if' if="{{controller}}" >
+      <iron-a11y-keys id="a11yL" keys="left" target="[[target]]" on-keys-pressed="_previousSlide"></iron-a11y-keys>
+      <iron-a11y-keys id="a11yR" keys="right" target="[[target]]" on-keys-pressed="_nextSlide"></iron-a11y-keys>
+    </template>
 
     <app-location route="{{route}}"></app-location>
     <app-route
@@ -106,77 +108,77 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           </neon-animatable>
 
           <!-- HTML5 INTRO HERE -->
-          <neon-animatable name="setinstone">          
+          <neon-animatable name="setinstone">
             <slide-setinstone></slide-setinstone>
           </neon-animatable>
 
-          <neon-animatable name="serverlangs">          
+          <neon-animatable name="serverlangs">
             <slide-serverlangs></slide-serverlangs>
           </neon-animatable>
 
-          <neon-animatable name="widgets">          
+          <neon-animatable name="widgets">
             <slide-widgets></slide-widgets>
           </neon-animatable>
 
-          <neon-animatable name="data">          
+          <neon-animatable name="data">
             <slide-data></slide-data>
           </neon-animatable>
 
-          <neon-animatable name="ajax">          
+          <neon-animatable name="ajax">
             <slide-ajax></slide-ajax>
           </neon-animatable>
 
-          <neon-animatable name="webapp">          
+          <neon-animatable name="webapp">
             <slide-webapp></slide-webapp>
           </neon-animatable>
 
-          <neon-animatable name="html5bg">          
+          <neon-animatable name="html5bg">
             <slide-html5bg></slide-html5bg>
           </neon-animatable>
 
-          <neon-animatable name="html5">          
+          <neon-animatable name="html5">
             <slide-html5></slide-html5>
           </neon-animatable>
 
-          <neon-animatable name="html5team">          
+          <neon-animatable name="html5team">
             <slide-html5team></slide-html5team>
           </neon-animatable>
 
           <!-- POLYMER HERE -->
-          <neon-animatable name="polyintro">          
+          <neon-animatable name="polyintro">
             <slide-polyintro></slide-polyintro>
           </neon-animatable>
-          <neon-animatable name="polylib">          
+          <neon-animatable name="polylib">
             <slide-polylib></slide-polylib>
           </neon-animatable>
-          <neon-animatable name="polyele">          
+          <neon-animatable name="polyele">
             <slide-polyele></slide-polyele>
           </neon-animatable>
-          <neon-animatable name="prlp">          
+          <neon-animatable name="prlp">
             <slide-prlp></slide-prlp>
           </neon-animatable>
 
           <!-- PWA HERE -->
-          <neon-animatable name="whatarepwa">          
+          <neon-animatable name="whatarepwa">
             <slide-whatarepwa></slide-whatarepwa>
           </neon-animatable>
 
-          <neon-animatable name="pwafeatures">          
+          <neon-animatable name="pwafeatures">
             <slide-pwafeatures></slide-pwafeatures>
           </neon-animatable>
 
-          <neon-animatable name="pwamanifest">          
+          <neon-animatable name="pwamanifest">
             <slide-pwamanifest></slide-pwamanifest>
-          </neon-animatable>   
+          </neon-animatable>
 
           <!-- LIGHTHOUSE HERE -->
-          <neon-animatable name="lighthouse">          
+          <neon-animatable name="lighthouse">
             <slide-lighthouse></slide-lighthouse>
           </neon-animatable>
 
         </neon-animated-pages>
       </app-header-layout>
-      
+
       <template is='dom-if' if="{{viewer}}" >
         <paper-menu-button emotions-nav class$="{{_getClassForEmotionNav(emotion)}}">
           <paper-icon-button src="../images/sliceTomator.svg" class="dropdown-trigger"></paper-icon-button>
@@ -185,7 +187,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             <paper-item name="smile"></paper-item>
             <paper-item name="neutral"></paper-item>
 <!--             <paper-item name="interest"></paper-item>
- -->            
+ -->
           </iron-selector>
         </paper-menu-button>
       </template>
@@ -195,10 +197,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                   database-url="https://slidetomator-6a36d.firebaseio.com/"
                   api-key="AIzaSyCIm-nW-uLagGIDkFACm_dXQ-hfS-EV6Z4">
     </firebase-app>
-    
-    <!--<firebase-document path="/currentPage"
+
+    <firebase-document path="/currentPage"
                        data="{{page}}">
-    </firebase-document>-->
+    </firebase-document>
 
     <firebase-document id='firemotion' path="/emotions/{{page}}/{{emotion}}"
                        data="{{emotionCounter}}">
@@ -286,12 +288,12 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           console.log('a')
           this.emotionValues = {};
         }
-        
+
         if(!this.emotionValues[emotion]){
           console.log('b')
           this.emotionValues[emotion] = 0;
         }
-        
+
         this.emotionValues[emotion]++;
 
         this.set('emotionCounter', this.emotionValues[emotion])
