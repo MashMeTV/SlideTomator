@@ -41,7 +41,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     <app-location route="{{route}}"></app-location>
     <app-route
         route="{{route}}"
-        pattern="/:page/:role"
+        pattern="/:page"
         data="{{routeData}}"
         tail="{{subroute}}"></app-route>
 
@@ -180,11 +180,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           observer: '_pageChanged',
           value: '1-title'
         },
-        role: {
-          type: String,
-          observer: '_roleChanged',
-          reflectToAttribute: true
-        },
         target: {
           type: Object,
           value: function() {
@@ -214,7 +209,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
       observers: [
         '_routePageChanged(routeData.page)',
-        '_setRole(routeData.role)'
+        '_setParams(subroute.__queryParams)'
       ],
 
       _routePageChanged: function(page) {
@@ -231,17 +226,13 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         this.importHref(resolvedPageUrl, null, null, true);
       },
 
-      _roleChanged: function(role) {
-        this.set(role, true);
-      },
-
-      _setRole: function(role) {
-        this.set('role', role);
+      _setParams: function(queryParams) {
+        for(var prop in queryParams){
+          this.set(prop, queryParams[prop]);
+        }
       },
 
       _emotionChanged: function(emotion) {
-        console.log('emotionChanged!!');
-        console.log(this.emotionCounter);
         if(!this.emotionCounter)
           this.emotionCounter = 0
         this.emotionCounter++;
@@ -254,8 +245,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         
         this.emotionValues['emotion']++;
         this.set('emotionValues.'+emotion, this.emotionCounter);
-
-        console.log(this.emotionCounter);
       },
 
       _previousSlide: function(){
