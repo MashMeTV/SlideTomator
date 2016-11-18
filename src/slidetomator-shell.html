@@ -196,11 +196,11 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                   api-key="AIzaSyCIm-nW-uLagGIDkFACm_dXQ-hfS-EV6Z4">
     </firebase-app>
     
-    <firebase-document path="/currentPage"
+    <!--<firebase-document path="/currentPage"
                        data="{{page}}">
-    </firebase-document>
+    </firebase-document>-->
 
-    <firebase-document path="/emotions/{{page}}/{{emotion}}"
+    <firebase-document id='firemotion' path="/emotions/{{page}}/{{emotion}}"
                        data="{{emotionCounter}}">
     </firebase-document>
   </template>
@@ -236,7 +236,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           value: {
               'smile': 0,
               'neutral': 0,
-              'interesting': 0,
               'boring': 0
           }
         }
@@ -261,6 +260,16 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         this.importHref(resolvedPageUrl, null, null, true);
         this.set('emotionCounter', null);
         this.set('emotion', null);
+
+        var component = this;
+        console.log('/emotions/'+page)
+        this.$.firemotion.getStoredValue('/emotions/'+page).then(function(result){
+          component.emotionValues['smile'] = result['smile'];
+          component.emotionValues['boring'] = result['boring'];
+          component.emotionValues['neutral'] = result['neutral'];
+          console.log(component.emotionValues)
+        });
+
       },
 
       _setParams: function(queryParams) {
@@ -270,16 +279,22 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       },
 
       _emotionChanged: function(emotion) {
+        console.log('_emotionChanged');
         if(!emotion) return;
-        if(!this.emotionValues)
+
+        if(!this.emotionValues){
+          console.log('a')
           this.emotionValues = {};
-        if(!this.emotionValues[emotion])
-          this.emotionValues[emotion] = 0;
+        }
         
-        this.emotionValues[emotion] = 0;
+        if(!this.emotionValues[emotion]){
+          console.log('b')
+          this.emotionValues[emotion] = 0;
+        }
+        
         this.emotionValues[emotion]++;
 
-        this.set('emotionCounter', this.emotionValues[emotion]);
+        this.set('emotionCounter', this.emotionValues[emotion])
       },
 
       _previousSlide: function(){
