@@ -12,9 +12,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <link rel="import" href="shared-styles.html">
 
 <link rel="import" href="slice-title.html">
-<link rel="import" href="slice-list.html">
+<link rel="import" href="slice-speaker.html">
+<link rel="import" href="slice-imgbg.html">
 
-<dom-module id="slide-3-list">
+<dom-module id="slide-polyintro">
   <template>
     <style include="shared-styles">
       :host {
@@ -36,14 +37,15 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     </style>
 
     <div class="card" card-center>
-      <slice-title title="Fruits" text-left></slice-title>
-      <slice-list elements='["apple", "orange", "banana"]' text-left></slice-list>
+      <slice-title title="Polymer Project, #UseThePlatform!" text-center></slice-title>
+      <slice-imgbg img="" text-center></slice-imgbg>
     </div>
+
   </template>
 
   <script>
     Polymer({
-      is: 'slide-3-list'
+      is: 'slide-polyintro',
     });
   </script>
 </dom-module>

@@ -44,6 +44,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                 align-items: center;
                 justify-content: center;
                 flex:1;
+                width: 100%;
 
             };
 
@@ -163,6 +164,12 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
         }
 
+        @media screen and (max-width: 460px) {
+            ::shadow h1 {
+                font-size: 5vh;
+            }
+        }
+
         vcard {
             /* flex */
             display: flex;
@@ -172,6 +179,12 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             width: 100%;
             padding-top: 85px;
         }
+            @media screen and (max-width: 460px) {
+                vcard {
+                    flex-flow: column nowrap;
+                    padding-top:0;
+                }
+            }
 
             slice-speaker {
                 position: relative;
@@ -182,6 +195,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                 background: #E3A150;
                 padding-left: 240px;
                 height: 100%;
+                box-sizing: border-box;
             }
 
             slice-speaker:first-child {
@@ -194,6 +208,15 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                 width:200px;
                 height: 200px; 
                 margin-top: -75px;
+                border:1px solid var(--gray);
+            }
+
+            @media screen and (max-width: 460px) {
+                ::shadow .avatar {
+                    width: 100px;
+                    height: auto;
+                    margin-top: 0 !important;
+                }
             }
 
             ::shadow [name] {
@@ -214,6 +237,28 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                     color:#fff;
                     text-decoration: none;
                 }
+
+
+            @media screen and (max-width: 768px) {
+                slice-speaker {
+                    padding-left: 20px; 
+                    padding-right: 20px;
+                    margin-bottom: 10px; 
+                    padding-top:20px;
+                }
+                ::shadow .avatar {
+                    position: relative;
+                    left:auto;
+                }
+                ::shadow [name] {
+                    font-size:40px;
+                }
+            }
+            @media screen and (max-width: 460px) {
+                ::shadow [name] {
+                    font-size:20px;
+                }
+            }
 
 
         slice-imgbg {

@@ -125,6 +125,18 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           </neon-animatable>
 
           <!-- POLYMER HERE -->
+          <neon-animatable name="polyintro">          
+            <slide-polyintro></slide-polyintro>
+          </neon-animatable>
+          <neon-animatable name="polylib">          
+            <slide-polylib></slide-polylib>
+          </neon-animatable>
+          <neon-animatable name="polyele">          
+            <slide-polyele></slide-polyele>
+          </neon-animatable>
+          <neon-animatable name="prlp">          
+            <slide-prlp></slide-prlp>
+          </neon-animatable>
 
           <!-- PWA HERE -->
           <neon-animatable name="whatarepwa">          
@@ -138,12 +150,16 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           <neon-animatable name="pwamanifest">          
             <slide-pwamanifest></slide-pwamanifest>
           </neon-animatable>          
+          <!-- LIGHTHOUSE HERE -->
+          <neon-animatable name="lighthouse">          
+            <slide-lighthouse></slide-lighthouse>
+          </neon-animatable>
         </neon-animated-pages>
       </app-header-layout>
       
       <template is='dom-if' if="{{viewer}}" >
-        <paper-menu-button style="position: absolute; left: 50px; bottom: 50px;" class$="{{emotion}}">
-          <paper-icon-button icon="menu" class="dropdown-trigger"></paper-icon-button>
+        <paper-menu-button emotions-nav class$="{{emotion}}">
+          <paper-icon-button src="../images/sliceTomator.svg" class="dropdown-trigger"></paper-icon-button>
           <iron-selector selected="{{emotion}}" attr-for-selected="name" class="dropdown-content">
             <paper-item name="smile">smile</paper-item>
             <paper-item name="interest">interest</paper-item>
