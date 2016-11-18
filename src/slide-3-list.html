@@ -20,9 +20,24 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       :host {
         @apply(--flex);
       }
+        
+      ::shadow h1 {
+        margin-top: 0;
+
+          /* font */
+          color:var(--red);
+          font-family: var(--font-family-type5);
+      }
+
+      slice-title, 
+      slice-list {
+        margin-left: 30vh;
+        padding-left: 4vh;
+        border-left: 10px solid var(--red);
+      }
     </style>
 
-    <div class="card" card-top>
+    <div class="card" card-center>
       <slice-title title="Fruits" text-left></slice-title>
       <slice-list elements='["apple", "orange", "banana"]' text-left></slice-list>
     </div>

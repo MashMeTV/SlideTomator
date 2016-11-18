@@ -50,18 +50,19 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             /*** COLORS ***/
             --white: #fff;
             --black: #000;
-            --gray: #999;
+            --gray: #424045;
+            --red: #E3492B;
             
             /** CARD SETTINGS **/
-            --margin-card: 35px;
+            --margin-card: 15px;
             --padding-card: 35px;
-            --border-radius-card: 20px;
+            --border-radius-card: 0;
 
             /*** FONTS ***/
 
                 /* -- font SIZE -- */   
 
-                --font-size-base:16px;
+                --font-size-base:2vh;
             
                 /* -- font WEIGHT -- */            
 
@@ -71,12 +72,13 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
                 /* -- font FAMILIES -- */
 
-                --font-family-base: Arial;
-                --font-roboto: 'Roboto';
-                --font-roboto-condensed: 'Roboto Condensed';
-                --font-oswald: 'Oswald';
-                --font-trirong: 'Trirong';
-                --font-dosis: 'Dosis';
+                --font-family-base-type1: Arial;
+                --font-family-base-type2: Impact;
+                --font-family-type1: 'Lobster Two';
+                --font-family-type2: 'Nixie One';
+                --font-family-type3: 'Rajdhani';
+                --font-family-type4: 'Raleway';
+                --font-family-type5: 'Abel';
 
         }
       
@@ -96,7 +98,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                 overflow: hidden;
 
                 /* box-model */
-                height: 90%;
+                height: 95%;
                 margin: var(--margin-card);
                 padding: var(--padding-card);
 
@@ -155,10 +157,19 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
             /* font */
             color: var(--black);
-            font:var(--font-normal) calc(var(--font-size-base)*6) var(--font-roboto-condensed); 
+            font:var(--font-normal) calc(var(--font-size-base)*5) var(--font-family-type2); 
             line-height: 1;
 
         }
+
+        vcard {
+            /* flex */
+            @apply(--flex); 
+        }
+
+            slice-speaker {
+                background: #E3A150;
+            }
 
         slice-imgbg {
             /* flex */
@@ -176,10 +187,22 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             overflow: hidden;
 
         }
+            slice-imgbg:after {
+                content: "";
+                display: block;
+                width: 100%;
+                height: 100%;
+                background: rgba(0,0,0,.65);
+                position:absolute;
+                left:0;
+                top: 0;
+                z-index: 0;
+            }
 
         slice-list {
+            color:var(--gray);
             /* font */
-            font:var(--font-light) calc(var(--font-size-base)*2) var(--font-roboto-condensed);
+            font:var(--font-normal) calc(var(--font-size-base)*2) var(--font-family-type5);
         }
 
     </style>

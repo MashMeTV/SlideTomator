@@ -1,0 +1,102 @@
+/************
+
+company: syncRTC.com
+author: @zmencay
+client: SlideTomator
+date-creation: Nov 2016
+
+----------------------------
+
+style guide:
+
+0. variables
+1. generic items
+
+*************/
+
+/** -- 0. variables -- */   
+
+:root {
+	--first-color: #E3A150;
+	box-sizing:border-box;
+}     
+
+/** -- 1. generic items -- */
+
+app-header {
+	/* presentation */
+	background: url(../../images/sliceTomator.svg) no-repeat center center;
+	background-size: auto 85%;
+
+	/* font */
+	color: #E3A150;
+	text-align: right;
+}
+	app-header app-toolbar {
+		height:90px;
+	}
+
+	[main-title] {
+		/* font */
+		font-size:5vh;
+		font-weight:normal;
+	}
+		[main-title] span {
+			font-family: 'Lobster Two';
+		}
+
+	[navBar] {
+		color:#E3492B;
+	}
+
+neon-animated-pages{
+height: 100%;
+}
+
+neon-animatable{
+position: initial;
+height: 100%;
+width: 100%;
+display: flex;
+}
+
+::shadow .slices-nav ::shadow #contentContainer {
+	background: #E3A150;
+}
+
+.logo {
+	display:flex;
+	justify-content:center;
+	align-items:center;
+	background: #E3A150;
+	min-height: 15vh;
+	padding:20px 0;
+
+}
+.logo img {
+	max-width:100%;
+	max-height:100%;
+}
+
+.drawer-list {
+ display:flex;
+ justify-content:center;
+ align-items:flex-start;
+ flex-flow:column nowrap;
+	border-top: 1px solid #fff;
+}
+
+.drawer-list a {
+	display:block;
+	width:100%;
+	border-bottom: 1px solid #fff;
+	background: #E3A150;
+	box-sizing:border-box;
+
+	padding: 0 16px;
+
+	text-decoration: none;
+
+	line-height: 40px;
+	color:var(--gray);
+}

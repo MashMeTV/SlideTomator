@@ -33,56 +33,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
 <dom-module id="slidetomator-shell">
   <template>
-    <style>
-      :host {
-        --app-primary-color: #4285f4;
-        --app-secondary-color: black;
+    <link rel="stylesheet" href="css/theme-styles.css">
 
-        display: block;
-      }
-
-      app-header {
-        color: #fff;
-        background-color: var(--app-primary-color);
-      }
-
-      app-header paper-icon-button {
-        --paper-icon-button-ink-color: white;
-      }
-
-      neon-animated-pages{
-        height: 100%;
-      }
-
-      neon-animatable{
-        position: initial;
-        height: 100%;
-        width: 100%;
-        display: flex;
-      }
-
-      .drawer-list {
-        margin: 0 20px;
-      }
-
-      .drawer-list a {
-        display: block;
-
-        padding: 0 16px;
-
-        text-decoration: none;
-
-        color: var(--app-secondary-color);
-
-        line-height: 40px;
-      }
-
-      .drawer-list a.iron-selected {
-        color: black;
-
-        font-weight: bold;
-      }
-    </style>
     <iron-a11y-keys id="a11y" keys="left" target="[[target]]" on-keys-pressed="_previousSlide"></iron-a11y-keys>
     <iron-a11y-keys id="a11y" keys="right" target="[[target]]" on-keys-pressed="_nextSlide"></iron-a11y-keys>
 
@@ -95,8 +47,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
     <app-drawer-layout fullbleed force-narrow>
       <!-- Drawer content -->
-      <app-drawer>
-        <app-toolbar>Table of contents</app-toolbar>
+      <app-drawer class="slices-nav">
+        <app-toolbar class="logo"><img src="../images/sliceTomator.svg" alt="slice tomator"></app-toolbar>
         <iron-selector selected="[[page]]" attr-for-selected="name" class="drawer-list" role="navigation">
           <a name="1-title" href="/1-title">Title</a>
           <a name="2-imagetest" href="/2-imagetest">Bg image test</a>
@@ -110,8 +62,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
         <app-header condenses reveals effects="waterfall">
           <app-toolbar>
-            <paper-icon-button icon="menu" drawer-toggle></paper-icon-button>
-            <div main-title>PWA con Polymer</div>
+            <h1 main-title>PWA <span>con Polymer</span></h1>
+            <paper-icon-button navBar icon="menu" drawer-toggle></paper-icon-button>
           </app-toolbar>
         </app-header>
 

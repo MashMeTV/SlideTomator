@@ -19,9 +19,16 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       :host {
         @apply(--flex);
       }
+      ::shadow h1 {
+
+          /* font */
+          font-family: var(--font-family-type3);
+          font-size: calc(var(--font-size-base)*4);
+      }
     </style>
 
-    <div class="card">
+    <div class="card" card-top>
+      <slice-title title="Vista código"></slice-title>
       <slice-code></slice-code>
     </div>
   </template>
