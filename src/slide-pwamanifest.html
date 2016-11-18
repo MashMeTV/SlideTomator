@@ -20,11 +20,20 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       :host {
         @apply(--flex);
       }
+      
       ::shadow h1 {
+        margin-top: 0;
 
           /* font */
-          font-family: var(--font-family-type3);
-          font-size: calc(var(--font-size-base)*4);
+          color:var(--red);
+          font-family: var(--font-family-type5);
+      }
+
+      slice-title, 
+      slice-list {
+        margin-left: 30vh;
+        padding-left: 4vh;
+        border-left: 10px solid var(--red);
       }
     </style>
 
