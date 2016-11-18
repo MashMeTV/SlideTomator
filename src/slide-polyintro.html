@@ -21,6 +21,19 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       :host {
         @apply(--flex);
       }
+        
+      ::shadow h1 {
+        margin-top: 0;
+
+          /* font */
+          color:var(--red);
+          font-family: var(--font-family-type5);
+      }
+
+      slice-title, 
+      slice-list {
+        border-left: 10px solid var(--red);
+      }
     </style>
 
     <div class="card" card-center>
