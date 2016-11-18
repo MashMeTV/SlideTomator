@@ -47,9 +47,6 @@ app-header {
 
 	paper-icon-button[navBar] {
 		color:#E3492B;
-	}
-
-	paper-icon-button[navBar] ::shadow iron-icon {
 		background: url(../../images/menu.svg) no-repeat center center;
 		background-size:12px;
 	}
@@ -123,11 +120,25 @@ display: flex;
 }
 	[emotions-nav].voted {
 		pointer-events: none;
-		background-color: grey;
+		width:40px;
+		height:40px;
 	}
-
+	
+	[emotions-nav].voted paper-icon-button {
+		display:none;
+	}
+	
 	[emotions-nav].smile {
-		
+		background:gray url(../../images/slice-feliz.svg) no-repeat center center;
+		background-size:35px;
+	}
+	[emotions-nav].neutral {
+		background:gray url(../../images/slice-neutral.svg) no-repeat center center;
+		background-size:35px;
+	}
+	[emotions-nav].boring {
+		background:gray url(../../images/slice-triste.svg) no-repeat center center;
+		background-size:35px;
 	}
 
 	[emotions-nav] paper-icon-button {
