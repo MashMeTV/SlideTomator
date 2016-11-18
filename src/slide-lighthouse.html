@@ -12,38 +12,37 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <link rel="import" href="shared-styles.html">
 
 <link rel="import" href="slice-title.html">
+<link rel="import" href="slice-speaker.html">
 <link rel="import" href="slice-imgbg.html">
 
-<dom-module id="slide-2-imagetest">
+<dom-module id="slide-11-lighthouse">
   <template>
     <style include="shared-styles">
-        :host {
-            @apply(--flex);
-        }
-
-        slice-title {
-            /* layout */
-            z-index: 2;
-        }
-        
-        ::shadow h1 {
-
-            /* font */
-            color:var(--white);
-            font-family: var(--font-family-type1);
-        }
-
+      :host {
+        @apply(--flex);
+      }
     </style>
 
     <div class="card" card-center>
-      <slice-title title="HTML, Written in stone" text-center></slice-title>
-      <slice-imgbg img="../images/stone.jpeg"></slice-imgbg>
+      <slice-title title="Lighthouse, auditing and performance metrics for PWA" text-center></slice-title>
+      <slice-imgbg img="" text-center></slice-imgbg>
+      <slice-list elements="{{elements}}"></slice-list>
     </div>
+
   </template>
 
   <script>
     Polymer({
-      is: 'slide-2-imagetest'
+      is: 'slide-11-lighthouse',
+
+      properties: {
+        elements: {
+          type: Array,
+          value: function() {
+            return ["Analyzes web apps and web pages", "Performance metrics", "Developer best practices"];
+          }
+        }
+      }
     });
   </script>
 </dom-module>
