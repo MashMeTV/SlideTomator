@@ -68,15 +68,10 @@ width: 100%;
 display: flex;
 }
 
-.slices-nav #contentContainer {
-	background: #E3A150;
-}
-
 .logo {
 	display:flex;
 	justify-content:center;
 	align-items:center;
-	background: #E3A150;
 	min-height: 15vh;
 	padding:20px 0;
 
@@ -98,7 +93,6 @@ display: flex;
 	display:block;
 	width:100%;
 	border-bottom: 1px solid #fff;
-	background: #E3A150;
 	box-sizing:border-box;
 
 	padding: 0 16px;
@@ -107,6 +101,10 @@ display: flex;
 
 	line-height: 40px;
 	color:var(--gray);
+
+	font-size:3vh;
+	font-family:'Rajdhani';
+	text-align:left;
 }
 
 [emotions-nav] {

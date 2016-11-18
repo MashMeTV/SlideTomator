@@ -35,6 +35,20 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   <template>
     <link rel="stylesheet" href="css/theme-styles.css">
 
+    <style>
+
+      .slices-nav {
+
+        overflow-y: scroll;
+        
+        --app-drawer-content-container: {
+          box-shadow: none;
+          background: rgba(227,161,80,.95);
+        }
+        --app-drawer-scrim-background: none;
+      }
+    </style>
+
     <iron-a11y-keys id="a11y" keys="left" target="[[target]]" on-keys-pressed="_previousSlide"></iron-a11y-keys>
     <iron-a11y-keys id="a11y" keys="right" target="[[target]]" on-keys-pressed="_nextSlide"></iron-a11y-keys>
 
@@ -47,7 +61,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
     <app-drawer-layout fullbleed force-narrow>
       <!-- Drawer content -->
-      <app-drawer class="slices-nav">
+      <app-drawer class="slices-nav" align="end">
         <app-toolbar class="logo"><img src="../images/sliceTomator.svg" alt="slice tomator"></app-toolbar>
         <iron-selector selected="[[page]]" attr-for-selected="name" class="drawer-list" role="navigation">
           <a name="1-title" href="/1-title">Title</a>
@@ -78,7 +92,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         <app-header condenses reveals effects="waterfall">
           <app-toolbar>
             <h1 main-title>PWA <span>con Polymer</span></h1>
-            <paper-icon-button navBar icon="menu" drawer-toggle></paper-icon-button>
+            <paper-icon-button navBar icon="icons:more-vert" drawer-toggle></paper-icon-button>
           </app-toolbar>
         </app-header>
 
