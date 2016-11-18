@@ -19,7 +19,8 @@
     "src/slide-setinstone.html",
     "src/slide-webapp.html",
     "src/slide-whatarepwa.html",
-    "src/slide-widgets.html"
+    "src/slide-widgets.html",
+    "src/slide-links.html"
   ],
   "sourceGlobs": [
    "src/**/*",
