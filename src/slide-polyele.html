@@ -1,0 +1,48 @@
+<!--
+@license
+Copyright (c) 2016 The Polymer Project Authors. All rights reserved.
+This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
+The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
+The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
+Code distributed by Google as part of the polymer project is also
+subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+-->
+
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="shared-styles.html">
+
+<link rel="import" href="slice-title.html">
+<link rel="import" href="slice-speaker.html">
+<link rel="import" href="slice-imgbg.html">
+
+<dom-module id="slide-polyele">
+  <template>
+    <style include="shared-styles">
+      :host {
+        @apply(--flex);
+      }
+    </style>
+
+    <div class="card" card-center>
+		<slice-title title="Web components, where are you?" text-center></slice-title>
+		<slice-imgbg img="" text-center></slice-imgbg>
+		<slice-list elements="{{elements}}"></slice-list>
+    </div>
+
+  </template>
+
+  <script>
+    Polymer({
+      is: 'slide-polyele',
+
+      properties: {
+        elements: {
+          type: Array,
+          value: function() {
+            return ["https://beta.webcomponents.org"];
+          }
+        }
+      }
+    });
+  </script>
+</dom-module>
