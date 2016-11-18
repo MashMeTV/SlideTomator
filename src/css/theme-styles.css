@@ -49,6 +49,14 @@ app-header {
 		color:#E3492B;
 	}
 
+	@media screen and (max-width: 460px) {
+
+		app-header {
+			background-position: 15px center;
+			background-size:auto 65%;
+		}
+    }
+
 neon-animated-pages{
 height: 100%;
 }
@@ -60,7 +68,7 @@ width: 100%;
 display: flex;
 }
 
-::shadow .slices-nav ::shadow #contentContainer {
+.slices-nav #contentContainer {
 	background: #E3A150;
 }
 
@@ -100,3 +108,35 @@ display: flex;
 	line-height: 40px;
 	color:var(--gray);
 }
+
+[emotions-nav] {
+	position: absolute;
+	right:30px;
+	bottom: 30px;
+	z-index: 4;
+
+	background: #E3492B;
+	border-radius:50%;
+}
+	[emotions-nav] paper-icon-button {
+		padding:0;
+	}
+	[emotions-nav] ::shadow iron-icon {
+		width:40px;
+		height:40px;
+	}
+	[emotions-nav] iron-selector {
+		position: fixed;
+		bottom:0;
+		left:0;
+		z-index:1;
+
+    flex-flow: row nowrap;
+    display: flex;
+    justify-content:space-between;
+
+		width:100%;
+		background:#424045;
+		height:60px;
+		color:#fff;
+	}

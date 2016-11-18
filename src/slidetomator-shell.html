@@ -91,8 +91,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       </app-header-layout>
       
       <template is='dom-if' if="{{viewer}}" >
-        <paper-menu-button style="position: absolute; left: 50px; bottom: 50px;" class$="{{emotion}}">
-          <paper-icon-button icon="menu" class="dropdown-trigger"></paper-icon-button>
+        <paper-menu-button emotions-nav class$="{{emotion}}">
+          <paper-icon-button src="../images/sliceTomator.svg" class="dropdown-trigger"></paper-icon-button>
           <iron-selector selected="{{emotion}}" attr-for-selected="name" class="dropdown-content">
             <paper-item name="smile">smile</paper-item>
             <paper-item name="interest">interest</paper-item>
