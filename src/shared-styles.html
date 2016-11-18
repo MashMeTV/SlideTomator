@@ -52,6 +52,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             --black: #000;
             --gray: #424045;
             --red: #E3492B;
+            --orange: #E3A150;
             
             /** CARD SETTINGS **/
             --margin-card: 15px;
@@ -164,12 +165,56 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
         vcard {
             /* flex */
-            @apply(--flex); 
+            display: flex;
+            align-items: flex-start;
+            justify-content: flex-start;
+            flex: 1;
+            width: 100%;
+            padding-top: 85px;
         }
 
             slice-speaker {
+                position: relative;
+                display: flex;
+                flex-flow: column nowrap;
+                flex: 1;
+                width: 100%;
                 background: #E3A150;
+                padding-left: 240px;
+                height: 100%;
             }
+
+            slice-speaker:first-child {
+                margin-right: 20px;
+            }
+
+            ::shadow .avatar {
+                position:absolute;
+                left:20px;
+                width:200px;
+                height: 200px; 
+                margin-top: -75px;
+            }
+
+            ::shadow [name] {
+                font-weight: bold;
+                font-family: 'Rajdhani';
+                font-size:50px;
+            }
+
+            ::shadow [social-share] {
+                color:#fff;
+                font-weight: light;
+                font-family: 'Raleway';
+                font-size:20px;
+                margin:0; 
+            }
+                
+                ::shadow [social-share] a {
+                    color:#fff;
+                    text-decoration: none;
+                }
+
 
         slice-imgbg {
             /* flex */
