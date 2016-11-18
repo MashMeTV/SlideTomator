@@ -91,12 +91,13 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       </app-header-layout>
       
       <template is='dom-if' if="{{viewer}}" >
-        <paper-menu-button style="position: absolute; left: 50px; bottom: 50px; class$="{{emotion}}">
+        <paper-menu-button style="position: absolute; left: 50px; bottom: 50px;" class$="{{emotion}}">
           <paper-icon-button icon="menu" class="dropdown-trigger"></paper-icon-button>
           <iron-selector selected="{{emotion}}" attr-for-selected="name" class="dropdown-content">
             <paper-item name="smile">smile</paper-item>
-            <paper-item name="neutro">ni fu ni fa</paper-item>
-            <paper-item name="sad">sad</paper-item>
+            <paper-item name="interest">interest</paper-item>
+            <paper-item name="neutral">neutral</paper-item>
+            <paper-item name="boring">boring</paper-item>
           </iron-selector>
         </paper-menu-button>
       </template>
@@ -145,7 +146,17 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         },
         emotionCounter:{
           type: Number,
+          reflectToAttribute: true,
           value: 0
+        },
+        emotionValues:{
+          type: Object,
+          value: {
+            'smile': 0,
+            'neutral': 0,
+            'interesting': 0,
+            'boring': 0
+          }
         }
       },
 
@@ -177,7 +188,22 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       },
 
       _emotionChanged: function(emotion) {
-        this.emotionCounter =+ 1;
+        console.log('emotionChanged!!');
+        console.log(this.emotionCounter);
+        if(!this.emotionCounter)
+          this.emotionCounter = 0
+        this.emotionCounter++;
+        this.set('emotionCounter', this.emotionCounter);
+
+        if(!this.emotionValues)
+          this.emotionValues = {};
+        if(!this.emotionValues['emotion'])
+          this.emotionValues['emotion'] = 0;
+        
+        this.emotionValues['emotion']++;
+        this.set('emotionValues.'+emotion, this.emotionCounter);
+
+        console.log(this.emotionCounter);
       },
 
       _previousSlide: function(){
