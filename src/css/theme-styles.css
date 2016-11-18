@@ -45,8 +45,13 @@ app-header {
 			font-family: 'Lobster Two';
 		}
 
-	[navBar] {
+	paper-icon-button[navBar] {
 		color:#E3492B;
+	}
+
+	paper-icon-button[navBar] ::shadow iron-icon {
+		background: url(../../images/menu.svg) no-repeat center center;
+		background-size:12px;
 	}
 
 	@media screen and (max-width: 460px) {
