@@ -131,12 +131,16 @@ display: flex;
 		left:0;
 		z-index:1;
 
-    flex-flow: row nowrap;
-    display: flex;
-    justify-content:space-between;
+    	flex-flow: row nowrap;
+    	display: flex;
+    	justify-content:space-between;
 
 		width:100%;
 		background:#424045;
 		height:60px;
 		color:#fff;
+	}
+	[emotions-nav].voted {
+		pointer-events: none;
+		background-color: grey;
 	}
