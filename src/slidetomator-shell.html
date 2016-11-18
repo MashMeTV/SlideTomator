@@ -234,10 +234,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         emotionValues:{
           type: Object,
           value: {
-            'smile': 0,
-            'neutral': 0,
-            'interesting': 0,
-            'boring': 0
+              'smile': 0,
+              'neutral': 0,
+              'interesting': 0,
+              'boring': 0
           }
         }
       },
@@ -259,7 +259,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       _pageChanged: function(page) {
         var resolvedPageUrl = this.resolveUrl('slide-' + page + '.html');
         this.importHref(resolvedPageUrl, null, null, true);
-        console.log(this.emotionCounter);
+        this.set('emotionCounter', null);
         this.set('emotion', null);
       },
 
@@ -270,11 +270,13 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       },
 
       _emotionChanged: function(emotion) {
+        if(!emotion) return;
         if(!this.emotionValues)
           this.emotionValues = {};
         if(!this.emotionValues[emotion])
           this.emotionValues[emotion] = 0;
         
+        this.emotionValues[emotion] = 0;
         this.emotionValues[emotion]++;
 
         this.set('emotionCounter', this.emotionValues[emotion]);
@@ -291,7 +293,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       },
 
       _getClassForEmotionNav: function(emotion) {
-        console.log(emotion);
         if(!emotion){
           return '';
         }else{
