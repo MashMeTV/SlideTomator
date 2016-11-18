@@ -1,36 +1,80 @@
+<!--
+@license
+Copyright (c) 2016 The Polymer Project Authors. All rights reserved.
+This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
+The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
+The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
+Code distributed by Google as part of the polymer project is also
+subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+-->
+
 <link rel="import" href="../bower_components/polymer/polymer.html">
 <link rel="import" href="../bower_components/syntax-highlight/syntax-highlight.html">
+<link rel="import" href="shared-styles.html">
 
-<dom-module id="slice-code">
+<link rel="import" href="slice-code.html">
+
+<dom-module id="slide-pwamanifest">
   <template>
-    <style>
+    <style include="shared-styles">
       :host {
-        width: 100%;
+        @apply(--flex);
+      }
+      ::shadow h1 {
+
+          /* font */
+          font-family: var(--font-family-type3);
+          font-size: calc(var(--font-size-base)*4);
       }
     </style>
 
-    <syntax-highlight theme="Arta" lang="html">
-        <h1>lorem ipsum</h1>
-        <script>
-            console.log("this is a test");
-        </script>
-    </syntax-highlight>
+    <div class="card" card-top>
+      <slice-title title="Manifest"></slice-title>
+      <syntax-highlight theme="Arta" lang="json">
+{
+  "name": "The Air Horner",
+  "short_name": "Air Horner",
+  "icons": [{
+        "src": "images/touch/Airhorner_128.png",
+        "type": "image/png",
+        "sizes": "128x128"
+      }, {
+        "src": "images/touch/Airhorner_152.png",
+        "type": "image/png",
+        "sizes": "152x152"
+      }, {
+        "src": "images/touch/Airhorner_144.png",
+        "type": "image/png",
+        "sizes": "144x144"
+      }, {
+        "src": "images/touch/Airhorner_192.png",
+        "type": "image/png",
+        "sizes": "192x192"
+      },
+      {
+        "src": "images/touch/Airhorner_256.png",
+        "type": "image/png",
+        "sizes": "256x256"
+      },
+      {
+        "src": "images/touch/Airhorner_512.png",
+        "type": "image/png",
+        "sizes": "512x512"
+      }],
+  "start_url": "/?homescreen=1",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#2196F3",
+  "theme_color": "#2196F3"
+}
+      </syntax-highlight>
+    </div>
   </template>
 
   <script>
     Polymer({
-      is: 'slice-code',
-
-      properties:{
-          title:{
-              type: String,
-              reflectToAttribute: true,
-              value: "Lorem Ipsum"
-          }
-      },
-
-      ready: function(){
-      }
+      is: 'slide-pwamanifest'
     });
   </script>
 </dom-module>
