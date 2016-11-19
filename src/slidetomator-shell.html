@@ -282,10 +282,12 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                   database-url="https://slidetomator-6a36d.firebaseio.com/"
                   api-key="AIzaSyCIm-nW-uLagGIDkFACm_dXQ-hfS-EV6Z4">
     </firebase-app>
-<!-- 
-    <firebase-document path="/currentPage"
+    
+    <template is='dom-if' if="{{sync}}" >
+      <firebase-document path="/currentPage"
                        data="{{page}}">
-    </firebase-document> -->
+      </firebase-document>
+    </template>
 
     <firebase-document id='firemotion' path="/emotions/{{page}}/{{emotion}}"
                        data="{{emotionCounter}}">
