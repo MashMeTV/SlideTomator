@@ -122,7 +122,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             fallback-selection="view404"
             role="main">
 
-          <neon-animatable name="ui-1">
+          <!-- <neon-animatable name="ui-1">
             <slide-ui-1></slide-ui-1>
           </neon-animatable>
 
@@ -184,9 +184,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
           <neon-animatable name="ui-16">
             <slide-ui-16></slide-ui-16>
-          </neon-animatable>
+          </neon-animatable> -->
 
-          <!-- <neon-animatable name="1-title">
+          <neon-animatable name="1-title">
             <slide-1-title></slide-1-title>
           </neon-animatable>
 
@@ -261,7 +261,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           
           <neon-animatable name="lighthouse">
             <slide-lighthouse></slide-lighthouse>
-          </neon-animatable> -->
+          </neon-animatable>
 
         </neon-animated-pages>
       </app-header-layout>
@@ -301,7 +301,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           type: String,
           reflectToAttribute: true,
           observer: '_pageChanged',
-          value: 'ui-1'
+          value: '1-title'
         },
         target: {
           type: Object,
@@ -334,7 +334,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       ],
 
       _routePageChanged: function(page) {
-        this.page = page || 'ui-1';
+        this.page = page || '1-title';
       },
 
       ready: function(){
