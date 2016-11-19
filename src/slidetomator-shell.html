@@ -66,7 +66,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       <app-drawer class="slices-nav" align="end">
         <app-toolbar class="logo"><img src="../images/sliceTomator.svg" alt="slice tomator"></app-toolbar>
         <iron-selector selected="[[page]]" attr-for-selected="name" class="drawer-list" role="navigation">
-          <a name="1-title" href="/1-title">Title</a>
+          <!-- <a name="1-title" href="/1-title">Title</a>
           <a name="links" href="/links">Title</a>
           <a name="setinstone" href="/setinstone">Set in stone</a>
           <a name="serverlangs" href="/serverlangs">Server langs.</a>
@@ -85,7 +85,24 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           <a name="pwafeatures" href="/pwafeatures">PWA Features</a>
           <a name="pwamanifest" href="/pwamanifest">PWA Manisfest</a>
           <a name="lighthouse" href="/lighthouse">Lighthouse</a>
-          <a name="data" href="/data">Data</a>
+          <a name="data" href="/data">Data</a> -->
+
+          <a name="ui-1" href="/ui-1">Quienes somos</a>
+          <a name="ui-2" href="/ui-2">Antes 1</a>
+          <a name="ui-3" href="/ui-3">Despues 1</a>
+          <a name="ui-4" href="/ui-4">Criterios 1</a>
+          <a name="ui-5" href="/ui-5">Antes 2</a>
+          <a name="ui-6" href="/ui-6">Despues 2</a>
+          <a name="ui-7" href="/ui-7">Criterios 2</a>
+          <a name="ui-8" href="/ui-8">Antes 3</a>
+          <a name="ui-9" href="/ui-9">Despues 3</a>
+          <a name="ui-10" href="/ui-10">Criterios 3</a>
+          <a name="ui-11" href="/ui-11">Antes 4</a>
+          <a name="ui-12" href="/ui-12">Despues 4</a>
+          <a name="ui-13" href="/ui-13">Criterios 4</a>
+          <a name="ui-14" href="/ui-14">Antes 5</a>
+          <a name="ui-15" href="/ui-15">Despues 5</a>
+          <a name="ui-16" href="/ui-16">Criterios 5</a>
         </iron-selector>
       </app-drawer>
 
@@ -94,7 +111,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
         <app-header condenses reveals effects="waterfall">
           <app-toolbar>
-            <h1 main-title>PWA <span>con Polymer</span></h1>
+            <h1 main-title><small>Como Ser</small>maestros <span>constructoreS</span></h1>
             <paper-icon-button navBar drawer-toggle></paper-icon-button>
           </app-toolbar>
         </app-header>
@@ -104,7 +121,72 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             attr-for-selected="name"
             fallback-selection="view404"
             role="main">
-          <neon-animatable name="1-title">
+
+          <neon-animatable name="ui-1">
+            <slide-ui-1></slide-ui-1>
+          </neon-animatable>
+
+          <neon-animatable name="ui-2">
+            <slide-ui-2></slide-ui-2>
+          </neon-animatable>
+
+          <neon-animatable name="ui-3">
+            <slide-ui-3></slide-ui-3>
+          </neon-animatable>
+
+          <neon-animatable name="ui-4">
+            <slide-ui-4></slide-ui-4>
+          </neon-animatable>
+
+          <neon-animatable name="ui-5">
+            <slide-ui-5></slide-ui-5>
+          </neon-animatable>
+
+          <neon-animatable name="ui-6">
+            <slide-ui-6></slide-ui-6>
+          </neon-animatable>
+
+          <neon-animatable name="ui-7">
+            <slide-ui-7></slide-ui-7>
+          </neon-animatable>
+
+          <neon-animatable name="ui-8">
+            <slide-ui-8></slide-ui-8>
+          </neon-animatable>
+
+          <neon-animatable name="ui-9">
+            <slide-ui-9></slide-ui-9>
+          </neon-animatable>
+
+          <neon-animatable name="ui-10">
+            <slide-ui-10></slide-ui-10>
+          </neon-animatable>
+
+          <neon-animatable name="ui-11">
+            <slide-ui-11></slide-ui-11>
+          </neon-animatable>
+
+          <neon-animatable name="ui-12">
+            <slide-ui-12></slide-ui-12>
+          </neon-animatable>
+
+          <neon-animatable name="ui-13">
+            <slide-ui-13></slide-ui-13>
+          </neon-animatable>
+
+          <neon-animatable name="ui-14">
+            <slide-ui-14></slide-ui-14>
+          </neon-animatable>
+
+          <neon-animatable name="ui-15">
+            <slide-ui-15></slide-ui-15>
+          </neon-animatable>
+
+          <neon-animatable name="ui-16">
+            <slide-ui-16></slide-ui-16>
+          </neon-animatable>
+
+          <!-- <neon-animatable name="1-title">
             <slide-1-title></slide-1-title>
           </neon-animatable>
 
@@ -112,7 +194,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             <slide-links></slide-links>
           </neon-animatable>
 
-          <!-- HTML5 INTRO HERE -->
+          
           <neon-animatable name="setinstone">
             <slide-setinstone></slide-setinstone>
           </neon-animatable>
@@ -149,7 +231,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             <slide-html5team></slide-html5team>
           </neon-animatable>
 
-          <!-- POLYMER HERE -->
+          
           <neon-animatable name="polyintro">
             <slide-polyintro></slide-polyintro>
           </neon-animatable>
@@ -163,7 +245,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             <slide-prlp></slide-prlp>
           </neon-animatable>
 
-          <!-- PWA HERE -->
+          
           <neon-animatable name="whatarepwa">
             <slide-whatarepwa></slide-whatarepwa>
           </neon-animatable>
@@ -176,10 +258,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             <slide-pwamanifest></slide-pwamanifest>
           </neon-animatable>
 
-          <!-- LIGHTHOUSE HERE -->
+          
           <neon-animatable name="lighthouse">
             <slide-lighthouse></slide-lighthouse>
-          </neon-animatable>
+          </neon-animatable> -->
 
         </neon-animated-pages>
       </app-header-layout>
@@ -191,8 +273,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             <paper-item name="boring"></paper-item>
             <paper-item name="smile"></paper-item>
             <paper-item name="neutral"></paper-item>
-<!--             <paper-item name="interest"></paper-item>
- -->
           </iron-selector>
         </paper-menu-button>
       </template>
@@ -202,10 +282,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                   database-url="https://slidetomator-6a36d.firebaseio.com/"
                   api-key="AIzaSyCIm-nW-uLagGIDkFACm_dXQ-hfS-EV6Z4">
     </firebase-app>
-
+<!-- 
     <firebase-document path="/currentPage"
                        data="{{page}}">
-    </firebase-document>
+    </firebase-document> -->
 
     <firebase-document id='firemotion' path="/emotions/{{page}}/{{emotion}}"
                        data="{{emotionCounter}}">
@@ -221,7 +301,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           type: String,
           reflectToAttribute: true,
           observer: '_pageChanged',
-          value: '1-title'
+          value: 'ui-1'
         },
         target: {
           type: Object,
@@ -254,7 +334,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       ],
 
       _routePageChanged: function(page) {
-        this.page = page || '1-title';
+        this.page = page || 'ui-1';
       },
 
       ready: function(){

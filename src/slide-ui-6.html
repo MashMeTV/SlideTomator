@@ -1,0 +1,47 @@
+<!--
+@license
+Copyright (c) 2016 The Polymer Project Authors. All rights reserved.
+This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
+The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
+The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
+Code distributed by Google as part of the polymer project is also
+subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+-->
+
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="shared-styles.html">
+
+<link rel="import" href="slice-title.html">
+<link rel="import" href="slice-list.html">
+
+<dom-module id="slide-ui-6">
+  <template>
+    <style include="shared-styles">
+      :host {
+        @apply(--flex);
+      }
+        
+      ::shadow h1 {
+        /* box-model */  
+        margin-top: 0;
+
+        /* font */
+        color:var(--red);
+        font-family: var(--font-family-type5);
+      }
+    </style>
+
+    <div class="card" card-center border-left>
+     <slice-title title="Titulo de la lista" text-left></slice-title>
+     <slice-list elements='["Primer punto de la lista", "Segundo punto de la lista", "Tercer punto de la lista"]'></slice-list>
+    </div>
+
+  </template>
+
+  <script>
+    Polymer({
+      is: 'slide-ui-6',
+
+    });
+  </script>
+</dom-module>

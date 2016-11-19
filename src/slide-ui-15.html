@@ -1,0 +1,62 @@
+<!--
+@license
+Copyright (c) 2016 The Polymer Project Authors. All rights reserved.
+This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
+The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
+The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
+Code distributed by Google as part of the polymer project is also
+subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+-->
+
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../bower_components/syntax-highlight/syntax-highlight.html">
+<link rel="import" href="shared-styles.html">
+
+<dom-module id="slide-ui-15">
+  <template>
+    <style include="shared-styles">
+      :host {
+        @apply(--flex);
+      }
+      
+      ::shadow h1 {
+        /* box-model */  
+        margin-top: 0;
+
+        /* font */  
+        font-size:calc(var(--font-size-base)*4);
+        font-family: var(--font-family-type3);
+      }
+    </style>
+
+    <div class="card" card-top>
+      <slice-title title="Vista código"></slice-title>
+      <syntax-highlight theme="Arta" lang="css">
+          slice-speaker {
+            /* layout */
+            position: relative;
+
+            /* flex */
+            display: flex;
+            flex-flow: column nowrap;
+            flex: 1;
+            
+            /* box-model */
+            width: 100%;
+            padding-left: 240px;
+            height: 100%;
+            box-sizing: border-box;
+            
+            /* presentation */
+            background: #E3A150;
+          }
+      </syntax-highlight>
+    </div>
+  </template>
+
+  <script>
+    Polymer({
+      is: 'slide-ui-15'
+    });
+  </script>
+</dom-module>
