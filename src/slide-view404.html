@@ -17,11 +17,11 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <dom-module id="slide-view404">
   <template>
     <style include="shared-styles">
-      :host {
+       :host {
         @apply(--flex);
       }
-
-      ::shadow h1 {
+      
+      h1 {
         color: var(--orange);
       }
     </style>
@@ -33,8 +33,12 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   </template>
 
   <script>
-    Polymer({
-      is: 'slide-view404',
-    });
+    class SlideView404 extends Polymer.Element {
+      static get is() {
+        return 'slide-view404';
+      }
+    }
+
+    window.customElements.define(SlideView404.is, SlideView404);
   </script>
 </dom-module>

@@ -18,43 +18,48 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <dom-module id="slide-polylib">
   <template>
     <style include="shared-styles">
-      :host {
+       :host {
         @apply(--flex);
       }
-        
-      ::shadow h1 {
+      
+      h1 {
         margin-top: 0;
-
-          /* font */
-          color:var(--red);
-          font-family: var(--font-family-type5);
+        /* font */
+        color: var(--red);
+        font-family: var(--font-family-type5);
       }
-
-      slice-title, 
+      
+      slice-title,
       slice-list {
         border-left: 10px solid var(--red);
       }
     </style>
 
     <div class="card" card-center>
-     <slice-title title="Polymer Library, the most of Web Components" text-center></slice-title>
-     <slice-list elements="{{elements}}"></slice-list>
+      <slice-title title="Polymer Library, the most of Web Components" text-center></slice-title>
+      <slice-list elements="{{elements}}"></slice-list>
     </div>
 
   </template>
 
   <script>
-    Polymer({
-      is: 'slide-polylib',
+    class SlidePolylib extends Polymer.Element {
+      static get is() {
+        return 'slide-polylib';
+      }
 
-      properties: {
-        elements: {
-          type: Array,
-          value: function() {
-            return ["Define elements", "Local DOM", "Styling", "Data System", "Events", "Tools"];
+      static get properties() {
+        return {
+          elements: {
+            type: Array,
+            value: function () {
+              return ['Define elements', 'Local DOM', 'Styling', 'Data System', 'Events', 'Tools'];
+            }
           }
         }
       }
-    });
+    }
+
+    window.customElements.define(SlidePolylib.is, SlidePolylib);
   </script>
 </dom-module>

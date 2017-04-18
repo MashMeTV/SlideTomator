@@ -21,7 +21,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             @apply(--flex);
         }
         
-        ::shadow h1 {
+        h1 {
 
             /* font */
             color:var(--white);
@@ -37,8 +37,13 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   </template>
 
   <script>
-    Polymer({
-      is: 'slide-setinstone'
-    });
+    class SlideSetinstone extends Polymer.Element {
+      static get is() {
+        return 'slide-setinstone';
+      }
+    }
+
+    window.customElements.define(SlideSetinstone.is, SlideSetinstone);
+
   </script>
 </dom-module>

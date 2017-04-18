@@ -17,12 +17,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <dom-module id="slide-1-title">
   <template>
     <style include="shared-styles">
-      :host {
+       :host {
         @apply(--flex);
-      }
-
-      ::shadow h1 {
-        color: var(--orange);
       }
     </style>
 
@@ -37,8 +33,12 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   </template>
 
   <script>
-    Polymer({
-      is: 'slide-1-title',
-    });
+    class Slide1Title extends Polymer.Element {
+      static get is() {
+        return 'slide-1-title';
+      }
+    }
+
+    window.customElements.define(Slide1Title.is, Slide1Title);
   </script>
 </dom-module>

@@ -30,42 +30,36 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <link rel="import" href="../bower_components/polymerfire/firebase-document.html">
 
 <link rel="import" href="my-icons.html">
+<link rel="import" href="theme-styles.html">
 
 <dom-module id="slidetomator-shell">
   <template>
-    <link rel="stylesheet" href="css/theme-styles.css">
-
+    <style include="theme-styles"></style>
     <style>
-
       .slices-nav {
-
         overflow-y: scroll;
-
         --app-drawer-content-container: {
           box-shadow: none;
-          background: rgba(227,161,80,.95);
+          background: rgba(227, 161, 80, .95);
         }
         --app-drawer-scrim-background: none;
       }
     </style>
 
-    <template is='dom-if' if="{{controller}}" >
+    <template is='dom-if' if="{{controller}}">
       <iron-a11y-keys id="a11yL" keys="left" target="[[target]]" on-keys-pressed="_previousSlide"></iron-a11y-keys>
       <iron-a11y-keys id="a11yR" keys="right" target="[[target]]" on-keys-pressed="_nextSlide"></iron-a11y-keys>
     </template>
 
     <app-location route="{{route}}"></app-location>
-    <app-route
-        route="{{route}}"
-        pattern="/:page"
-        data="{{routeData}}"
-        tail="{{subroute}}"></app-route>
+    <app-route route="{{route}}" pattern="/:page" data="{{routeData}}" tail="{{subroute}}"></app-route>
 
     <app-drawer-layout fullbleed force-narrow>
       <!-- Drawer content -->
       <app-drawer class="slices-nav" align="end">
         <app-toolbar class="logo"><img src="../images/sliceTomator.svg" alt="slice tomator"></app-toolbar>
         <iron-selector selected="[[page]]" attr-for-selected="name" class="drawer-list" role="navigation">
+
           <a name="1-title" href="/1-title">Title</a>
           <a name="links" href="/links">Links</a>
           <a name="setinstone" href="/setinstone">Set in stone</a>
@@ -87,22 +81,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           <a name="lighthouse" href="/lighthouse">Lighthouse</a>
           <a name="data" href="/data">Data</a>
 
-          <!--<a name="ui-1" href="/ui-1">Quienes somos</a>
-          <a name="ui-2" href="/ui-2">Antes 1</a>
-          <a name="ui-3" href="/ui-3">Despues 1</a>
-          <a name="ui-4" href="/ui-4">Criterios 1</a>
-          <a name="ui-5" href="/ui-5">Antes 2</a>
-          <a name="ui-6" href="/ui-6">Despues 2</a>
-          <a name="ui-7" href="/ui-7">Criterios 2</a>
-          <a name="ui-8" href="/ui-8">Antes 3</a>
-          <a name="ui-9" href="/ui-9">Despues 3</a>
-          <a name="ui-10" href="/ui-10">Criterios 3</a>
-          <a name="ui-11" href="/ui-11">Antes 4</a>
-          <a name="ui-12" href="/ui-12">Despues 4</a>
-          <a name="ui-13" href="/ui-13">Criterios 4</a>
-          <a name="ui-14" href="/ui-14">Antes 5</a>
-          <a name="ui-15" href="/ui-15">Despues 5</a>
-          <a name="ui-16" href="/ui-16">Criterios 5</a>-->
         </iron-selector>
       </app-drawer>
 
@@ -116,75 +94,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           </app-toolbar>
         </app-header>
 
-        <neon-animated-pages id="slides"
-            selected="[[page]]"
-            attr-for-selected="name"
-            fallback-selection="view404"
-            role="main">
-
-          <!-- <neon-animatable name="ui-1">
-            <slide-ui-1></slide-ui-1>
-          </neon-animatable>
-
-          <neon-animatable name="ui-2">
-            <slide-ui-2></slide-ui-2>
-          </neon-animatable>
-
-          <neon-animatable name="ui-3">
-            <slide-ui-3></slide-ui-3>
-          </neon-animatable>
-
-          <neon-animatable name="ui-4">
-            <slide-ui-4></slide-ui-4>
-          </neon-animatable>
-
-          <neon-animatable name="ui-5">
-            <slide-ui-5></slide-ui-5>
-          </neon-animatable>
-
-          <neon-animatable name="ui-6">
-            <slide-ui-6></slide-ui-6>
-          </neon-animatable>
-
-          <neon-animatable name="ui-7">
-            <slide-ui-7></slide-ui-7>
-          </neon-animatable>
-
-          <neon-animatable name="ui-8">
-            <slide-ui-8></slide-ui-8>
-          </neon-animatable>
-
-          <neon-animatable name="ui-9">
-            <slide-ui-9></slide-ui-9>
-          </neon-animatable>
-
-          <neon-animatable name="ui-10">
-            <slide-ui-10></slide-ui-10>
-          </neon-animatable>
-
-          <neon-animatable name="ui-11">
-            <slide-ui-11></slide-ui-11>
-          </neon-animatable>
-
-          <neon-animatable name="ui-12">
-            <slide-ui-12></slide-ui-12>
-          </neon-animatable>
-
-          <neon-animatable name="ui-13">
-            <slide-ui-13></slide-ui-13>
-          </neon-animatable>
-
-          <neon-animatable name="ui-14">
-            <slide-ui-14></slide-ui-14>
-          </neon-animatable>
-
-          <neon-animatable name="ui-15">
-            <slide-ui-15></slide-ui-15>
-          </neon-animatable>
-
-          <neon-animatable name="ui-16">
-            <slide-ui-16></slide-ui-16>
-          </neon-animatable> -->
+        <neon-animated-pages id="slides" selected="[[page]]" attr-for-selected="name" fallback-selection="view404" role="main">
 
           <neon-animatable name="1-title">
             <slide-1-title></slide-1-title>
@@ -194,7 +104,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             <slide-links></slide-links>
           </neon-animatable>
 
-          
+
           <neon-animatable name="setinstone">
             <slide-setinstone></slide-setinstone>
           </neon-animatable>
@@ -231,7 +141,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             <slide-html5team></slide-html5team>
           </neon-animatable>
 
-          
+
           <neon-animatable name="polyintro">
             <slide-polyintro></slide-polyintro>
           </neon-animatable>
@@ -245,7 +155,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             <slide-prlp></slide-prlp>
           </neon-animatable>
 
-          
+
           <neon-animatable name="whatarepwa">
             <slide-whatarepwa></slide-whatarepwa>
           </neon-animatable>
@@ -258,7 +168,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             <slide-pwamanifest></slide-pwamanifest>
           </neon-animatable>
 
-          
+
           <neon-animatable name="lighthouse">
             <slide-lighthouse></slide-lighthouse>
           </neon-animatable>
@@ -266,7 +176,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         </neon-animated-pages>
       </app-header-layout>
 
-      <template is='dom-if' if="{{viewer}}" >
+      <template is='dom-if' if="{{viewer}}">
         <paper-menu-button emotions-nav class$="{{_getClassForEmotionNav(emotion)}}">
           <paper-icon-button src="../images/sliceTomator.svg" class="dropdown-trigger"></paper-icon-button>
           <iron-selector selected="{{emotion}}" attr-for-selected="name" class="dropdown-content">
@@ -276,133 +186,136 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           </iron-selector>
         </paper-menu-button>
       </template>
-      </app-drawer-layout>
+    </app-drawer-layout>
 
-    <firebase-app auth-domain="slidetomator-6a36d.firebaseapp.com"
-                  database-url="https://slidetomator-6a36d.firebaseio.com/"
-                  api-key="AIzaSyCIm-nW-uLagGIDkFACm_dXQ-hfS-EV6Z4">
+    <firebase-app auth-domain="slidetomator-6a36d.firebaseapp.com" database-url="https://slidetomator-6a36d.firebaseio.com/"
+      api-key="AIzaSyCIm-nW-uLagGIDkFACm_dXQ-hfS-EV6Z4">
     </firebase-app>
-    
-    <template is='dom-if' if="{{sync}}" >
-      <firebase-document path="/currentPage"
-                       data="{{page}}">
+
+    <template is='dom-if' if="{{sync}}">
+      <firebase-document path="/currentPage" data="{{page}}">
       </firebase-document>
     </template>
 
-    <firebase-document id='firemotion' path="/emotions/{{page}}/{{emotion}}"
-                       data="{{emotionCounter}}">
+    <firebase-document id='firemotion' path="/emotions/{{page}}/{{emotion}}" data="{{emotionCounter}}">
     </firebase-document>
   </template>
 
   <script>
-    Polymer({
-      is: 'slidetomator-shell',
+    class SlidetomatorShell extends Polymer.Element {
+      static get is() {
+        return 'slidetomator-shell';
+      }
 
-      properties: {
-        page: {
-          type: String,
-          reflectToAttribute: true,
-          observer: '_pageChanged',
-          value: '1-title'
-        },
-        target: {
-          type: Object,
-          value: function() {
-            return document.body;
-          }
-        },
-        emotion:{
-          type: Number,
-          observer: '_emotionChanged'
-        },
-        emotionCounter:{
-          type: Number,
-          reflectToAttribute: true,
-          value: null
-        },
-        emotionValues:{
-          type: Object,
-          value: {
+      static get properties() {
+        return {
+          page: {
+            type: String,
+            reflectToAttribute: true,
+            observer: '_pageChanged',
+            value: '1-title'
+          },
+          target: {
+            type: Object,
+            value: function () {
+              return document.body;
+            }
+          },
+          emotion: {
+            type: Number,
+            observer: '_emotionChanged'
+          },
+          emotionCounter: {
+            type: Number,
+            reflectToAttribute: true,
+            value: null
+          },
+          emotionValues: {
+            type: Object,
+            value: {
               'smile': 0,
               'neutral': 0,
               'boring': 0
+            }
           }
         }
-      },
+      }
 
-      observers: [
-        '_routePageChanged(routeData.page)',
-        '_setParams(subroute.__queryParams)'
-      ],
+      static get observers() {
+        return [
+          '_routePageChanged(routeData.page)',
+          '_setParams(subroute.__queryParams)'
+        ]
+      }
 
-      _routePageChanged: function(page) {
-        this.page = page || '1-title';
-      },
-
-      ready: function(){
+      ready() {
+        super.ready();
         this.$.slides.entryAnimation = "scale-up-animation";
         this.$.slides.exitAnimation = "fade-out-animation";
-      },
+      }
 
-      _pageChanged: function(page) {
+      _routePageChanged(page) {
+        this.page = page || '1-title';
+      }
+
+
+      _pageChanged(page) {
         var resolvedPageUrl = this.resolveUrl('slide-' + page + '.html');
-        this.importHref(resolvedPageUrl, null, null, true);
+        Polymer.importHref(resolvedPageUrl, null, null, true);
         this.set('emotionCounter', null);
         this.set('emotion', null);
 
         var component = this;
-        console.log('/emotions/'+page)
-        this.$.firemotion.getStoredValue('/emotions/'+page).then(function(result){
+        this.$.firemotion.getStoredValue('/emotions/' + page).then(function (result) {
           component.emotionValues['smile'] = result['smile'];
           component.emotionValues['boring'] = result['boring'];
           component.emotionValues['neutral'] = result['neutral'];
-          console.log(component.emotionValues)
         });
 
-      },
+      }
 
-      _setParams: function(queryParams) {
-        for(var prop in queryParams){
+      _setParams(queryParams) {
+        for (var prop in queryParams) {
           this.set(prop, queryParams[prop]);
         }
-      },
+      }
 
-      _emotionChanged: function(emotion) {
-        console.log('_emotionChanged');
-        if(!emotion) return;
+      _emotionChanged(emotion) {
+        if (!emotion) return;
 
-        if(!this.emotionValues){
-          console.log('a')
+        if (!this.emotionValues) {
           this.emotionValues = {};
         }
 
-        if(!this.emotionValues[emotion]){
-          console.log('b')
+        if (!this.emotionValues[emotion]) {
           this.emotionValues[emotion] = 0;
         }
 
         this.emotionValues[emotion]++;
 
         this.set('emotionCounter', this.emotionValues[emotion])
-      },
+      }
 
-      _previousSlide: function(){
+      _previousSlide() {
         this.$.slides.selectPrevious();
         this.page = this.$.slides.selected;
-      },
+      }
 
-      _nextSlide: function(){
+      _nextSlide() {
         this.$.slides.selectNext();
         this.page = this.$.slides.selected;
-      },
+      }
 
-      _getClassForEmotionNav: function(emotion) {
-        if(!emotion){
+      _getClassForEmotionNav(emotion) {
+        if (!emotion) {
           return '';
-        }else{
+        } else {
           return emotion + ' voted';
         }
       }
-    });
+
+    }
+
+    window.customElements.define(SlidetomatorShell.is, SlidetomatorShell);
   </script>
 </dom-module>

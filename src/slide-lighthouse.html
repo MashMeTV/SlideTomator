@@ -18,24 +18,24 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <dom-module id="slide-lighthouse">
   <template>
     <style include="shared-styles">
-      :host {
+       :host {
         @apply(--flex);
       }
-        
-      ::shadow h1 {
+      
+      h1 {
         margin-top: 0;
-
-          /* font */
-          color:var(--red);
-          font-family: var(--font-family-type5);
+        /* font */
+        color: var(--red);
+        font-family: var(--font-family-type5);
       }
-
-      slice-title, 
+      
+      slice-title,
       slice-list {
         border-left: 10px solid var(--red);
       }
+      
       slice-list {
-        color:var(--white);
+        color: var(--white);
       }
     </style>
 
@@ -48,17 +48,23 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   </template>
 
   <script>
-    Polymer({
-      is: 'slide-lighthouse',
+    class SlideLighthouse extends Polymer.Element {
+      static get is() {
+        return 'slide-lighthouse';
+      }
 
-      properties: {
-        elements: {
-          type: Array,
-          value: function() {
-            return ["Analyzes web apps and web pages", "Performance metrics", "Developer best practices"];
+      static get properties() {
+        return {
+          elements: {
+            type: Array,
+            value: function () {
+              return 'Analyzes web apps and web pages', 'Performance metrics', 'Developer best practices'];
+            }
           }
         }
       }
-    });
+    }
+
+    window.customElements.define(SlideLighthouse.is, SlideLighthouse);
   </script>
 </dom-module>

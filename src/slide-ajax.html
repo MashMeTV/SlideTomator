@@ -17,17 +17,15 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <dom-module id="slide-ajax">
   <template>
     <style include="shared-styles">
-        :host {
-            @apply(--flex);
-        }
-
-        ::shadow h1 {
-
-            /* font */
-            color:var(--white);
-            font-family: var(--font-family-type1);
-        }
-
+       :host {
+        @apply(--flex);
+      }
+      
+      h1 {
+        /* font */
+        color: var(--white);
+        font-family: var(--font-family-type1);
+      }
     </style>
 
     <div class="card" card-center>
@@ -37,8 +35,12 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   </template>
 
   <script>
-    Polymer({
-      is: 'slide-ajax'
-    });
+    class SliceAjax extends Polymer.Element {
+      static get is() {
+        return 'slice-ajax';
+      }
+    }
+
+    window.customElements.define(SliceAjax.is, SliceAjax);
   </script>
 </dom-module>

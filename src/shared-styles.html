@@ -14,7 +14,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <dom-module id="shared-styles">
   <template>
     <style>
-        /************
+      /************
 
         company: syncRTC.com
         author: @zmencay
@@ -31,327 +31,292 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         3. slice elements
 
         *************/
-
-        /** -- 0. IMPORTS -- */        
-
-        /** -- 1. VARIABLES -- */
-        :root{
-
-            --flex: {
-
-                /* flex */
-                display: flex;
-                align-items: flex-start;
-                justify-content: center;
-                flex:1;
-                width: 100%;
-
-            };
-
-            /*** COLORS ***/
-            --white: #fff;
-            --black: #000;
-            --gray: #424045;
-            --red: #E3492B;
-            --orange: #E3A150;
-            --turquee: #34ccb7;
-            
-            /** CARD SETTINGS **/
-            --margin-card: 15px;
-            --padding-card: 35px;
-            --border-radius-card: 0;
-
-            /*** FONTS ***/
-
-                /* -- font SIZE -- */   
-
-                --font-size-base:2vh;
-            
-                /* -- font WEIGHT -- */            
-
-                --font-light: 100;
-                --font-regular: 300;
-                --font-bold: 700;
-
-                /* -- font FAMILIES -- */
-
-                --font-family-base-type1: Arial;
-                --font-family-base-type2: Impact;
-                --font-family-type1: 'Lobster Two';
-                --font-family-type2: 'Nixie One';
-                --font-family-type3: 'Rajdhani';
-                --font-family-type4: 'Raleway';
-                --font-family-type5: 'Abel';
-
-        }
+      /** -- 0. IMPORTS -- */
+      /** -- 1. VARIABLES -- */
       
-        /** -- 2. GENERAL ELEMENTS -- */
-            :root {
-                box-sizing: border-box;
-            }
-
-            .card {
-
-                /* flex */
-                @apply(--flex);
-                flex-flow: column nowrap;
-
-                /* layout */
-                position: relative;
-                overflow: hidden;
-
-                /* box-model */
-                height: 95%;
-                margin: var(--margin-card);
-                padding: var(--padding-card);
-
-                /* font */
-                color: var(--gray);
-
-                /* presentation */
-                border-radius: var(--border-radius-card);
-                background-color: var(--white);
-                box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
-
-            }
-
-    /** -- 3. SLICE ELEMENTS -- */
-
-        [text-left] {
-            text-align: left;
+       :host > * {
+        --flex: {
+          /* flex */
+          display: flex;
+          align-items: flex-start;
+          justify-content: center;
+          flex: 1;
+          width: 100%;
         }
-        [text-center] {
-            text-align: center;
+        ;
+        /*** COLORS ***/
+        --white: #fff;
+        --black: #000;
+        --gray: #424045;
+        --red: #E3492B;
+        --orange: #E3A150;
+        --turquee: #34ccb7;
+        /** CARD SETTINGS **/
+        --margin-card: 15px;
+        --padding-card: 35px;
+        --border-radius-card: 0;
+        /*** FONTS ***/
+        /* -- font SIZE -- */
+        --font-size-base:2vh;
+        /* -- font WEIGHT -- */
+        --font-light: 100;
+        --font-regular: 300;
+        --font-bold: 700;
+        /* -- font FAMILIES -- */
+        --font-family-base-type1: Arial;
+        --font-family-base-type2: Impact;
+        --font-family-type1: 'Lobster Two';
+        --font-family-type2: 'Nixie One';
+        --font-family-type3: 'Rajdhani';
+        --font-family-type4: 'Raleway';
+        --font-family-type5: 'Abel';
+      }
+      /** -- 2. GENERAL ELEMENTS -- */
+      
+       :host > * {
+        box-sizing: border-box;
+      }
+      
+      .card {
+        /* flex */
+        @apply(--flex);
+        flex-flow: column nowrap;
+        /* layout */
+        position: relative;
+        overflow: hidden;
+        /* box-model */
+        height: 95%;
+        margin: var(--margin-card);
+        padding: var(--padding-card);
+        /* font */
+        color: var(--gray);
+        /* presentation */
+        border-radius: var(--border-radius-card);
+        background-color: var(--white);
+        box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
+      }
+      /** -- 3. SLICE ELEMENTS -- */
+      
+      [text-left] {
+        text-align: left;
+      }
+      
+      [text-center] {
+        text-align: center;
+      }
+      
+      [text-right] {
+        text-align: right;
+      }
+      
+      [card-top] {
+        justify-content: flex-start;
+      }
+      
+      [card-center] {
+        justify-content: center;
+      }
+      
+      [card-bottom] {
+        justify-content: flex-end;
+      }
+      
+      slice-title {
+        /* layout */
+        position: relative;
+        z-index: 2;
+      }
+      
+      h1 {
+        /* box-model */
+        margin: 20px 0;
+        /* font */
+        color: var(--gray);
+        font: var(--font-normal) calc(var(--font-size-base)*5) var(--font-family-type2);
+        line-height: 1;
+      }
+      
+      @media screen and (max-width: 460px) {
+        h1 {
+          /* font */
+          font-size: 5vh;
         }
-        [text-right] {
-            text-align: right;
-        }
-
-        [card-top] {
-            justify-content: flex-start;
-        }
-        [card-center] {
-            justify-content: center;
-        }
-        [card-bottom] {
-            justify-content: flex-end;
-        }
-
-        slice-title {
-
-            /* layout */
-            position: relative;
-            z-index: 2;
-        }
-
-        ::shadow h1 {
-
-            /* box-model */
-            margin:20px 0;
-
-            /* font */
-            color: var(--gray);
-            font:var(--font-normal) calc(var(--font-size-base)*5) var(--font-family-type2); 
-            line-height: 1;
-
-        }
-
-        @media screen and (max-width: 460px) {
-            ::shadow h1 {
-                /* font */
-                font-size: 5vh;
-            }
-        }
-
+      }
+      
+      vcard {
+        /* flex */
+        display: flex;
+        align-items: flex-start;
+        justify-content: flex-start;
+        flex: 1;
+        /* box-model */
+        width: 100%;
+        padding-top: 85px;
+      }
+      
+      @media screen and (max-width: 460px) {
         vcard {
-            /* flex */
-            display: flex;
-            align-items: flex-start;
-            justify-content: flex-start;
-            flex: 1;
-
-            /* box-model */
-            width: 100%;
-            padding-top: 85px;
+          /* flex */
+          flex-flow: column nowrap;
+          /* box-model */
+          padding-top: 0;
         }
-            @media screen and (max-width: 460px) {
-                vcard {
-                    /* flex */
-                    flex-flow: column nowrap;
-
-                    /* box-model */
-                    padding-top:0;
-                }
-            }
-
-            slice-speaker {
-                /* layout */
-                position: relative;
-
-                /* flex */
-                display: flex;
-                flex-flow: column nowrap;
-                flex: 1;
-                
-                /* box-model */
-                width: 100%;
-
-                /* preentation */
-                background: #E3A150;
-                padding-left: 240px;
-                height: 100%;
-                box-sizing: border-box;
-            }
-
-            slice-speaker:first-child {
-                /* box-model */
-                margin-right: 20px;
-            }
-
-            ::shadow .avatar {
-                /* layout */
-                position:absolute;
-                left:20px;
-
-                /* box-model */
-                width:200px;
-                height: 200px; 
-                margin-top: -75px;
-                border:1px solid var(--gray);
-            }
-
-            @media screen and (max-width: 460px) {
-                ::shadow .avatar {
-                    /* box-model */
-                    width: 100px;
-                    height: auto;
-                    margin-top: 0 !important;
-                }
-            }
-
-            ::shadow [name] {
-                /* font */
-                font-weight: bold;
-                font-family: 'Rajdhani';
-                font-size:50px;
-            }
-
-            ::shadow [social-share] {
-                /* font */
-                color:#fff;
-                font-weight: light;
-                font-family: 'Raleway';
-                font-size:20px;
-
-                /* box-model */
-                margin:0; 
-            }
-                
-                ::shadow [social-share] a {
-                    /* font */
-                    color:#fff;
-                    text-decoration: none;
-                }
-
-
-            @media screen and (max-width: 768px) {
-                slice-speaker {
-                    /* box-model */
-                    padding-left: 20px; 
-                    padding-right: 20px;
-                    margin-bottom: 10px; 
-                    padding-top:20px;
-                }
-                ::shadow .avatar {
-                    /* layout */
-                    position: relative;
-                    left:auto;
-                }
-                ::shadow [name] {
-                    /* font */
-                    font-size:40px;
-                }
-            }
-            @media screen and (max-width: 460px) {
-                ::shadow [name] {
-                    /* font */
-                    font-size:20px;
-                }
-            }
-
-
-        slice-imgbg {
-            /* flex */
-            @apply(--flex); 
-            align-items: flex-start;
-
-            /* layout */
-            position: absolute;
-            left: 0;
-            top: 0;
-            z-index: 0;
-
-            /* box-model */
-            max-width: 100%;
-            max-height: 100%;
-            height: 100%;
-            overflow: hidden;
+      }
+      
+      slice-speaker {
+        /* layout */
+        position: relative;
+        /* flex */
+        display: flex;
+        flex-flow: column nowrap;
+        flex: 1;
+        /* box-model */
+        width: 100%;
+        /* preentation */
+        background: #E3A150;
+        padding-left: 240px;
+        height: 100%;
+        box-sizing: border-box;
+      }
+      
+      slice-speaker:first-child {
+        /* box-model */
+        margin-right: 20px;
+      }
+      
+      .avatar {
+        /* layout */
+        position: absolute;
+        left: 20px;
+        /* box-model */
+        width: 200px;
+        height: 200px;
+        margin-top: -75px;
+        border: 1px solid var(--gray);
+      }
+      
+      @media screen and (max-width: 460px) {
+        .avatar {
+          /* box-model */
+          width: 100px;
+          height: auto;
+          margin-top: 0 !important;
         }
-
-            slice-imgbg[fade] {
-                /* flex */
-                align-items: center;
-            }
-
-            slice-imgbg[fade]:after {
-                /* layout */
-                content: "";
-                display: block;
-                position:absolute;
-                left:0;
-                top: 0;
-                z-index: 0;
-
-                /* box-model */
-                width: 100%;
-                height: 100%;
-                
-                /* presentation */
-                background: rgba(0,0,0,.65);
-            }
-
-        slice-list {
-            /* layout */
-            position: relative;
-            z-index: 2;
-
-            /* font */
-            color:var(--gray);
-            font:var(--font-normal) calc(var(--font-size-base)*2) var(--font-family-type5);
+      }
+      
+      [name] {
+        /* font */
+        font-weight: bold;
+        font-family: 'Rajdhani';
+        font-size: 50px;
+      }
+      
+      [social-share] {
+        /* font */
+        color: #fff;
+        font-weight: light;
+        font-family: 'Raleway';
+        font-size: 20px;
+        /* box-model */
+        margin: 0;
+      }
+      
+      [social-share] a {
+        /* font */
+        color: #fff;
+        text-decoration: none;
+      }
+      
+      @media screen and (max-width: 768px) {
+        slice-speaker {
+          /* box-model */
+          padding-left: 20px;
+          padding-right: 20px;
+          margin-bottom: 10px;
+          padding-top: 20px;
         }
-
-
-        [border-left] slice-title, 
-        [border-left] slice-list {
-            /* presentation */
-            border-left: 10px solid var(--red);
-            padding-left: 3vh;
-
-            /* box-model */
-            margin-left:3vh;
+        .avatar {
+          /* layout */
+          position: relative;
+          left: auto;
         }
-
-        [border-left="turquee"] slice-title, 
-        [border-left="turquee"] slice-list {
-            /* presentation */
-            border-color:var(--turquee);
+        [name] {
+          /* font */
+          font-size: 40px;
         }
-
-        syntax-highlight {
-            /* font */
-            font-size:2vh;
+      }
+      
+      @media screen and (max-width: 460px) {
+        [name] {
+          /* font */
+          font-size: 20px;
         }
-
+      }
+      
+      slice-imgbg {
+        /* flex */
+        @apply(--flex);
+        align-items: flex-start;
+        /* layout */
+        position: absolute;
+        left: 0;
+        top: 0;
+        z-index: 0;
+        /* box-model */
+        max-width: 100%;
+        max-height: 100%;
+        height: 100%;
+        overflow: hidden;
+      }
+      
+      slice-imgbg[fade] {
+        /* flex */
+        align-items: center;
+      }
+      
+      slice-imgbg[fade]:after {
+        /* layout */
+        content: "";
+        display: block;
+        position: absolute;
+        left: 0;
+        top: 0;
+        z-index: 0;
+        /* box-model */
+        width: 100%;
+        height: 100%;
+        /* presentation */
+        background: rgba(0, 0, 0, .65);
+      }
+      
+      slice-list {
+        /* layout */
+        position: relative;
+        z-index: 2;
+        /* font */
+        color: var(--gray);
+        font: var(--font-normal) calc(var(--font-size-base)*2) var(--font-family-type5);
+      }
+      
+      [border-left] slice-title,
+      [border-left] slice-list {
+        /* presentation */
+        border-left: 10px solid var(--red);
+        padding-left: 3vh;
+        /* box-model */
+        margin-left: 3vh;
+      }
+      
+      [border-left="turquee"] slice-title,
+      [border-left="turquee"] slice-list {
+        /* presentation */
+        border-color: var(--turquee);
+      }
+      
+      syntax-highlight {
+        /* font */
+        font-size: 2vh;
+      }
     </style>
   </template>
 </dom-module>

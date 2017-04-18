@@ -17,11 +17,11 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <dom-module id="slide-links">
   <template>
     <style include="shared-styles">
-      :host {
+       :host {
         @apply(--flex);
       }
-
-      ::shadow h1 {
+      
+      h1 {
         color: var(--orange);
       }
     </style>
@@ -34,8 +34,12 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   </template>
 
   <script>
-    Polymer({
-      is: 'slide-links',
-    });
+    class SlideLinks extends Polymer.Element {
+      static get is() {
+        return 'slide-links';
+      }
+    }
+
+    window.customElements.define(SlideLinks.is, SlideLinks);
   </script>
 </dom-module>

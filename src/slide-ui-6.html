@@ -17,31 +17,33 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <dom-module id="slide-ui-6">
   <template>
     <style include="shared-styles">
-      :host {
+       :host {
         @apply(--flex);
       }
-        
-      ::shadow h1 {
-        /* box-model */  
+      
+      h1 {
+        /* box-model */
         margin-top: 0;
-
         /* font */
-        color:var(--red);
+        color: var(--red);
         font-family: var(--font-family-type5);
       }
     </style>
 
     <div class="card" card-center border-left>
-     <slice-title title="Titulo de la lista" text-left></slice-title>
-     <slice-list elements='["Primer punto de la lista", "Segundo punto de la lista", "Tercer punto de la lista"]'></slice-list>
+      <slice-title title="Titulo de la lista" text-left></slice-title>
+      <slice-list elements='["Primer punto de la lista", "Segundo punto de la lista", "Tercer punto de la lista"]'></slice-list>
     </div>
 
   </template>
 
   <script>
-    Polymer({
-      is: 'slide-ui-6',
+    class SlideUi6 extends Polymer.Element {
+      static get is() {
+        return 'slide-ui-6';
+      }
+    }
 
-    });
+    window.customElements.define(SlideUi6.is, SlideUi6);
   </script>
 </dom-module>

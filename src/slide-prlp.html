@@ -18,19 +18,18 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <dom-module id="slide-prlp">
   <template>
     <style include="shared-styles">
-      :host {
+       :host {
         @apply(--flex);
       }
-        
-      ::shadow h1 {
+      
+      h1 {
         margin-top: 0;
-
-          /* font */
-          color:var(--red);
-          font-family: var(--font-family-type5);
+        /* font */
+        color: var(--red);
+        font-family: var(--font-family-type5);
       }
-
-      slice-title, 
+      
+      slice-title,
       slice-list {
         border-left: 10px solid var(--red);
       }
@@ -44,17 +43,23 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   </template>
 
   <script>
-    Polymer({
-      is: 'slide-prlp',
+    class SlidePrlp extends Polymer.Element {
+      static get is() {
+        return 'slide-prlp';
+      }
 
-      properties: {
-        elements: {
-          type: Array,
-          value: function() {
-            return ["Component-based architecture", "Modular routing", "Localization", "Responsive design", "Offline caching", "Build tooling", "PRPL"];
+      static get properties() {
+        return {
+          elements: {
+            type: Array,
+            value: function () {
+              return ['Component-based architecture', 'Modular routing', 'Localization', 'Responsive design', 'Offline caching', 'Build tooling', 'PRPL'];
+            }
           }
         }
       }
-    });
+    }
+
+    window.customElements.define(SlidePrlp.is, SlidePrlp);
   </script>
 </dom-module>

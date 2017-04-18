@@ -3,29 +3,37 @@
 <dom-module id="slice-imgbg">
   <template>
     <style>
-      :host {
+       :host {
         width: 100%;
       }
+      
       img {
         max-width: 100%;
-        max-height:100%;
+        max-height: 100%;
       }
     </style>
 
-    <img src="{{img}}"/>
+    <img src="{{img}}" alt="" />
+
   </template>
 
   <script>
-    Polymer({
-      is: 'slice-imgbg',
-
-      properties:{
-          img:{
-              type: String,
-              reflectToAttribute: true,
-              value: "../images/dummy-img.jpg"
-          }
+    class SliceImgbg extends Polymer.Element {
+      static get is() {
+        return 'slice-imgbg';
       }
-    });
+
+      static get properties() {
+        return {
+          img: {
+            type: String,
+            reflectToAttribute: true,
+            value: "../images/dummy-img.jpg"
+          }
+        }
+      }
+    }
+
+    window.customElements.define(SliceImgbg.is, SliceImgbg);
   </script>
 </dom-module>

@@ -17,17 +17,15 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <dom-module id="slide-html5team">
   <template>
     <style include="shared-styles">
-        :host {
-            @apply(--flex);
-        }
-        
-        ::shadow h1 {
-
-            /* font */
-            color:var(--white);
-            font-family: var(--font-family-type1);
-        }
-
+       :host {
+        @apply(--flex);
+      }
+      
+      h1 {
+        /* font */
+        color: var(--white);
+        font-family: var(--font-family-type1);
+      }
     </style>
 
     <div class="card" card-center>
@@ -37,8 +35,12 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   </template>
 
   <script>
-    Polymer({
-      is: 'slide-html5team'
-    });
+    class SlideHtml5team extends Polymer.Element {
+      static get is() {
+        return 'slide-html5team';
+      }
+    }
+
+    window.customElements.define(SlideHtml5team.is, SlideHtml5team);
   </script>
 </dom-module>

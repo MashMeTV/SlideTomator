@@ -2,37 +2,41 @@
 
 <dom-module id="slice-speaker">
   <template>
-    <style>
-      :host {
-      }
-    </style>
-
-    <img src='{{avatar}}' class="avatar" />
+    <img src='{{avatar}}' class="avatar" alt="" />
     <h2 name>{{name}}</h2>
     <h3 social-share><a href="https://www.twitter.com/{{twitter}}">@{{twitter}}</h3>
   </template>
 
   <script>
-    Polymer({
-      is: 'slice-speaker',
 
-      properties:{
-          name:{
-              type: String,
-              reflectToAttribute: true,
-              value: "Lorem Ipsum"
+    class SliceSpeaker extends Polymer.Element {
+      static get is() {
+        return 'slice-speaker';
+      }
+
+      static get properties() {
+        return {
+          name: {
+            type: String,
+            reflectToAttribute: true,
+            value: "Lorem Ipsum"
           },
-          twitter:{
+          twitter: {
             type: String,
             reflectToAttribute: true,
             value: "LoremIpsum"
           },
-          avatar:{
+          avatar: {
             type: String,
             reflectToAttribute: true,
             value: "../images/avatar.png"
           }
+        }
       }
-    });
+
+    }
+
+    window.customElements.define(SliceSpeaker.is, SliceSpeaker);
+
   </script>
 </dom-module>

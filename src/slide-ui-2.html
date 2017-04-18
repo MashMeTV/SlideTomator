@@ -16,7 +16,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <dom-module id="slide-ui-2">
   <template>
     <style include="shared-styles">
-      :host {
+       :host {
         @apply(--flex);
       }
     </style>
@@ -28,8 +28,12 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   </template>
 
   <script>
-    Polymer({
-      is: 'slide-ui-2',
-    });
+    class SlideUi2 extends Polymer.Element {
+      static get is() {
+        return 'slide-ui-2';
+      }
+    }
+
+    window.customElements.define(SlideUi2.is, SlideUi2);
   </script>
 </dom-module>

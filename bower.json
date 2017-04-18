@@ -5,30 +5,38 @@
   ],
   "private": true,
   "dependencies": {
-    "app-layout": "PolymerElements/app-layout#^0.10.0",
-    "app-route": "PolymerElements/app-route#^0.9.0",
-    "iron-flex-layout": "PolymerElements/iron-flex-layout#^1.0.0",
-    "iron-icon": "PolymerElements/iron-icon#^1.0.0",
-    "iron-iconset-svg": "PolymerElements/iron-iconset-svg#^1.0.0",
-    "iron-localstorage": "PolymerElements/iron-localstorage#^1.0.0",
-    "iron-media-query": "PolymerElements/iron-media-query#^1.0.0",
-    "iron-pages": "PolymerElements/iron-pages#^1.0.0",
-    "iron-selector": "PolymerElements/iron-selector#^1.0.0",
-    "paper-icon-button": "PolymerElements/paper-icon-button#~1.1.0",
-    "polymer": "Polymer/polymer#^1.7.0",
-    "neon-animation": "^1.2.4",
-    "iron-a11y-keys": "^1.0.6",
+    "app-layout": "PolymerElements/app-layout#2.0-preview",
+    "app-route": "PolymerElements/app-route#2.0-preview",
+    "iron-flex-layout": "PolymerElements/iron-flex-layout#2.0-preview",
+    "iron-icon": "PolymerElements/iron-icon#2.0-preview",
+    "iron-iconset-svg": "PolymerElements/iron-iconset-svg#2.0-preview",
+    "iron-localstorage": "PolymerElements/iron-localstorage#2.0-preview",
+    "iron-media-query": "PolymerElements/iron-media-query#2.0-preview",
+    "iron-pages": "PolymerElements/iron-pages#2.0-preview",
+    "iron-selector": "PolymerElements/iron-selector#2.0-preview",
+    "paper-icon-button": "PolymerElements/paper-icon-button#2.0-preview",
+    "polymer": "Polymer/polymer#2.0.0-rc.1",
+    "neon-animation": "2.0-preview",
     "polymerfire": "^0.10.3",
     "highlightjs": "^9.8.0",
     "syntax-highlight": "1000ch/syntax-highlight#^1.0.0",
-    "paper-menu-button": "^1.5.2",
-    "paper-menu": "^1.2.2",
-    "paper-item": "^1.2.1"
+    "paper-menu-button": "2.0-preview",
+    "paper-item": "2.0-preview",
+    "paper-menu": "PolymerElements/paper-menu#^1.2.2",
+    "iron-a11y-keys": "PolymerElements/iron-a11y-keys#^1.0.7"
   },
   "devDependencies": {
-    "web-component-tester": "^4.0.0"
+    "web-component-tester": "6.0.0-prerelease.5"
   },
   "resolutions": {
-    "highlightjs": "8.5"
+    "highlightjs": "8.5",
+    "iron-flex-layout": "2.0-preview",
+    "polymer": "^2.0.0-rc.3",
+    "iron-selector": "2.0-preview",
+    "iron-behaviors": "2.0-preview",
+    "paper-styles": "2.0-preview",
+    "iron-resizable-behavior": "2.0-preview",
+    "webcomponentsjs": "^v1.0.0-rc.5",
+    "iron-a11y-keys-behavior": "2.0-preview"
   }
 }

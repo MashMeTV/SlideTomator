@@ -17,19 +17,18 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <dom-module id="slide-polyintro">
   <template>
     <style include="shared-styles">
-      :host {
+       :host {
         @apply(--flex);
       }
-        
-      ::shadow h1 {
+      
+      h1 {
         margin-top: 0;
-
-          /* font */
-          color:var(--red);
-          font-family: var(--font-family-type5);
+        /* font */
+        color: var(--red);
+        font-family: var(--font-family-type5);
       }
-
-      slice-title, 
+      
+      slice-title,
       slice-list {
         border-left: 10px solid var(--red);
       }
@@ -42,8 +41,12 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   </template>
 
   <script>
-    Polymer({
-      is: 'slide-polyintro',
-    });
+    class SlidePolyintro extends Polymer.Element {
+      static get is() {
+        return 'slide-polyintro';
+      }
+    }
+
+    window.customElements.define(SlidePolyintro.is, SlidePolyintro);
   </script>
 </dom-module>

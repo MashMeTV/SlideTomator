@@ -18,43 +18,48 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <dom-module id="slide-polyele">
   <template>
     <style include="shared-styles">
-      :host {
+       :host {
         @apply(--flex);
       }
-        
-      ::shadow h1 {
+      
+      h1 {
         margin-top: 0;
-
-          /* font */
-          color:var(--red);
-          font-family: var(--font-family-type5);
+        /* font */
+        color: var(--red);
+        font-family: var(--font-family-type5);
       }
-
-      slice-title, 
+      
+      slice-title,
       slice-list {
         border-left: 10px solid var(--red);
       }
     </style>
 
     <div class="card" card-center>
-		<slice-title title="Web components, where are you?" text-center></slice-title>
-		<slice-list elements="{{elements}}"></slice-list>
+      <slice-title title="Web components, where are you?" text-center></slice-title>
+      <slice-list elements="{{elements}}"></slice-list>
     </div>
 
   </template>
 
   <script>
-    Polymer({
-      is: 'slide-polyele',
+    class SlidePolyele extends Polymer.Element {
+      static get is() {
+        return 'slide-polyele';
+      }
 
-      properties: {
-        elements: {
-          type: Array,
-          value: function() {
-            return ["https://beta.webcomponents.org"];
+      static get properties() {
+        return {
+          elements: {
+            type: Array,
+            value: function () {
+              return ['https://beta.webcomponents.org'];
+            }
           }
         }
       }
-    });
+    }
+
+    window.customElements.define(SlidePolyele.is, SlidePolyele);
   </script>
 </dom-module>

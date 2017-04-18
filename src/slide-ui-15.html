@@ -15,16 +15,15 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <dom-module id="slide-ui-15">
   <template>
     <style include="shared-styles">
-      :host {
+       :host {
         @apply(--flex);
       }
       
-      ::shadow h1 {
-        /* box-model */  
+      h1 {
+        /* box-model */
         margin-top: 0;
-
-        /* font */  
-        font-size:calc(var(--font-size-base)*4);
+        /* font */
+        font-size: calc(var(--font-size-base)*4);
         font-family: var(--font-family-type3);
       }
     </style>
@@ -32,31 +31,20 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     <div class="card" card-top>
       <slice-title title="Vista código"></slice-title>
       <syntax-highlight theme="Arta" lang="css">
-          slice-speaker {
-            /* layout */
-            position: relative;
-
-            /* flex */
-            display: flex;
-            flex-flow: column nowrap;
-            flex: 1;
-            
-            /* box-model */
-            width: 100%;
-            padding-left: 240px;
-            height: 100%;
-            box-sizing: border-box;
-            
-            /* presentation */
-            background: #E3A150;
-          }
+        slice-speaker { /* layout */ position: relative; /* flex */ display: flex; flex-flow: column nowrap; flex: 1; /* box-model
+        */ width: 100%; padding-left: 240px; height: 100%; box-sizing: border-box; /* presentation */ background: #E3A150;
+        }
       </syntax-highlight>
     </div>
   </template>
 
   <script>
-    Polymer({
-      is: 'slide-ui-15'
-    });
+    class SlideUi15 extends Polymer.Element {
+      static get is() {
+        return 'slide-ui-15';
+      }
+    }
+
+    window.customElements.define(SlideUi15is, SlideUi15);
   </script>
 </dom-module>

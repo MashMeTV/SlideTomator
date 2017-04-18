@@ -17,15 +17,15 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <dom-module id="slide-ui-12">
   <template>
     <style include="shared-styles">
-      :host {
+       :host {
         @apply(--flex);
       }
-      ::shadow h1 {
-        /* box-model */  
+      
+      h1 {
+        /* box-model */
         margin-top: 0;
-
         /* font */
-        color:var(--white);
+        color: var(--white);
         font-family: var(--font-family-type1);
       }
     </style>
@@ -38,8 +38,12 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   </template>
 
   <script>
-    Polymer({
-      is: 'slide-ui-12',
-    });
+    class SlideUi12 extends Polymer.Element {
+      static get is() {
+        return 'slide-ui-12';
+      }
+    }
+
+    window.customElements.define(SlideUi12.is, SlideUi12);
   </script>
 </dom-module>

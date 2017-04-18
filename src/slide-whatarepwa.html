@@ -17,28 +17,26 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <dom-module id="slide-whatarepwa">
   <template>
     <style include="shared-styles">
-      :host {
+       :host {
         @apply(--flex);
       }
-        
-      ::shadow h1 {
+      
+      h1 {
         margin-top: 0;
-
-          /* font */
-          color:var(--red);
-          font-family: var(--font-family-type5);
+        /* font */
+        color: var(--red);
+        font-family: var(--font-family-type5);
       }
-
-      slice-title, 
+      
+      slice-title,
       slice-list {
         margin-left: 30vh;
         padding-left: 4vh;
         border-left: 10px solid var(--red);
       }
-
+      
       @media screen and (max-width: 460px) {
-
-        slice-title, 
+        slice-title,
         slice-list {
           margin-left: 5vh;
           padding-left: 4vh;
@@ -53,8 +51,12 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   </template>
 
   <script>
-    Polymer({
-      is: 'slide-whatarepwa'
-    });
+    class SlideWhatarepwa extends Polymer.Element {
+      static get is() {
+        return 'slide-whatarepwa';
+      }
+    }
+
+    window.customElements.define(SlideWhatarepwa.is, SlideWhatarepwa);
   </script>
 </dom-module>

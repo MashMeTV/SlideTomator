@@ -2,29 +2,30 @@
 
 <dom-module id="slice-list">
   <template>
-    <style>
-      :host {
-        
-      }
-    </style>
-
     <ul>
-        <template is="dom-repeat" items={{elements}}>
-            <li>{{item}}</li>
-        </template>
+      <template is="dom-repeat" items={{elements}}>
+        <li>{{item}}</li>
+      </template>
     </ul>
   </template>
 
   <script>
-    Polymer({
-      is: 'slice-list',
-
-      properties:{
-          elements:{
-              type: Object,
-              reflectToAttribute: true
-          }
+    class SliceList extends Polymer.Element {
+      static get is() {
+        return 'slice-list';
       }
-    });
+
+      static get properties() {
+        return {
+          elements: {
+            type: Object,
+            reflectToAttribute: true
+          }
+        }
+      }
+    }
+
+    window.customElements.define(SliceList.is, SliceList);
+
   </script>
 </dom-module>

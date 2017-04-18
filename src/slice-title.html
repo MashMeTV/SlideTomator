@@ -2,10 +2,13 @@
 
 <dom-module id="slice-title">
   <template>
-    
+
     <style>
-      :host {
+       :host {
         width: 100%;
+      }
+      h1 {
+        color: var(--orange);
       }
     </style>
 
@@ -13,16 +16,21 @@
   </template>
 
   <script>
-    Polymer({
-      is: 'slice-title',
-
-      properties:{
-          title:{
-              type: String,
-              reflectToAttribute: true,
-              value: "Lorem Ipsum"
-          }
+    class SliceTitle extends Polymer.Element {
+      static get is() {
+        return 'slice-title';
       }
-    });
+      static get properties() {
+        return {
+          title: {
+            type: String,
+            reflectToAttribute: true,
+            value: "Lorem Ipsum"
+          }
+        }
+      }
+    }
+
+    window.customElements.define(SliceTitle.is, SliceTitle);
   </script>
 </dom-module>

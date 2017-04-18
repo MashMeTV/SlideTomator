@@ -17,53 +17,54 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <dom-module id="slide-ui-16">
   <template>
     <style include="shared-styles">
-      :host {
+       :host {
         @apply(--flex);
       }
-        
-      ::shadow h1 {
-        /* box-model */  
+      
+      h1 {
+        /* box-model */
         margin-top: 0;
-
         /* font */
-        color:var(--turquee);
+        color: var(--turquee);
         font-family: var(--font-family-type1);
-        font-size:calc(var(--font-size-base)*4);
+        font-size: calc(var(--font-size-base)*4);
       }
-
-      [border-left] slice-title, 
+      
+      [border-left] slice-title,
       [border-left] slice-list {
-        /* box-model */  
+        /* box-model */
         padding-left: 1vh;
-        margin-left:38vh;
+        margin-left: 38vh;
       }
+      
       @media screen and (max-width: 768px) {
-          [border-left] slice-title, 
-          [border-left] slice-list {
-            /* box-model */  
-            padding-left: 1vh;
-            margin-left:27vh;
-          }
+        [border-left] slice-title,
+        [border-left] slice-list {
+          /* box-model */
+          padding-left: 1vh;
+          margin-left: 27vh;
+        }
       }
-
+      
       slice-list {
-        /* font */  
+        /* font */
         font-weight: var(--font-light);
         font-size: calc(var(--font-size-base)*1.8);
         font-family: var(--font-family-type4);
         line-height: 1.5;
       }
+      
       @media screen and (max-width: 460px) {
-          [border-left] slice-title, 
-          [border-left] slice-list {
-            /* box-model */  
-            padding-left: 1vh;
-            margin-left:7vh;
-          }
-          slice-list {
-            /* font */  
-            font-size: calc(var(--font-size-base)*1.3);
-          }
+        [border-left] slice-title,
+        [border-left] slice-list {
+          /* box-model */
+          padding-left: 1vh;
+          margin-left: 7vh;
+        }
+        slice-list {
+          /* font */
+          font-size: calc(var(--font-size-base)*1.3);
+        }
       }
     </style>
 
@@ -76,8 +77,12 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   </template>
 
   <script>
-    Polymer({
-      is: 'slide-ui-16',
-    });
+    class SlideUi16 extends Polymer.Element {
+      static get is() {
+        return 'slide-ui-16';
+      }
+    }
+
+    window.customElements.define(SlideUi16.is, SlideUi16);
   </script>
 </dom-module>
